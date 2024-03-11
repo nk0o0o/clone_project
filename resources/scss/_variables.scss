@@ -6,15 +6,8 @@ $breakpoint-desktop: 1264px;
 /*****  FONT *****/
 // Font Family
 $font-noto: "Noto Sans KR", sans-serif;
-$font-pop: "Poppins", sans-serif;
-$font-aritadt: "aritadt", sans-serif;
-$font-aritadm: "aritadm", sans-serif;
-$font-aritadsb: "aritadsb", sans-serif;
-$font-aritadb: "aritadb", sans-serif;
-$font-aritasans: "aritasans", sans-serif;
-$font-lgsmha: "LGSmHa", sans-serif;
-$font-APHQ: "APHQ", sans-serif;
-$font-SUIT: "SUIT", sans-serif;
+$font-redhat: "RedHat", sans-serif;
+$font-pretendard: "Pretendard", sans-serif;
 
 // Font Size
 $fs-xxxs: 1.0rem;
@@ -32,60 +25,96 @@ $fs-xxlg: 4.8rem;
 $fs-xxxlg: 5.4rem;
 
 // Font Weight
-$fw-t: 100; // thin
-$fw-l: 300; // light
 $fw-n: 400; // regular
 $fw-m: 500; // medium
 $fw-sb: 600; // semibold
 $fw-b: 700; // bold
-$fw-bb: 900; // extrabold
-
 
 /*****  Color *****/
 // 주요 색상
-$color-primary: #0f62fe;
-$color-primary-lighten4: #D0E2FF;
-$color-primary-lighten40:lighten(#D0E2FF, 40%);
-$color-primary-lighten3: #A6C8FF;
-$color-primary-lighten2: #78A9FF;
-$color-primary-lighten1: #4589FF;
-$color-primary-darken1: #0043CE;
-$color-primary-darken2: #002D9C;
-$color-primary-darken3: #001D6C;
-$color-primary-darken4: #001141;
-.btn_border{background-color: $color-primary-lighten40 !important;}
-$color-secondary: #FF5151;
+$color-primary-black: #000;
+$color-primary-white: #FFF;
+$color-primary-blue: #1454FF;
+
+$color-fund-blue1: #003CDC;
+$color-fund-blue2: #1898F4;
+
+$color-kodex-blue: #1454FF;
+
+$color-primary: $color-primary-blue;
+$color-secondary: $color-red;
+$color-blue-hover: #033CD4;
 
 // 시스템 색상
-$color-red: #D72222; 
-$color-orange: #F2711C; 
-$color-yellow: #FFC107; 
+$color-red: #E11D1D;
+
+$color-orange-dark: #A01E00;
+$color-orange: #FA5317;
+$color-orange1: #F65742;
+$color-orange-light1: #FAA264;
+$color-orange-light2: #FACFAA;
+
+$color-lime: #DAFE52;
+
+$color-yellow: #FFD52B; 
+$color-yellow2: #FBB938;
+
 $color-olive: #B5CC18; 
-$color-green: #26A769; 
-$color-teal: #00B5AD; 
-$color-blue: #0036B1;
 $color-violet: #6435C9;
-$color-purple: #A333C8;
-$color-pink: #E03997;
+$color-teal: #00B5AD; 
 $color-brown: #A5673F;
 
-// Grayscale
-$gray-950: #1F1F1F; 
-$gray-900: #303030; 
-$gray-800: #404040; 
-$gray-700: #525252; 
-$gray-600: #5E5E5E; 
-$gray-500: #666666; 
-$gray-400: #868686; 
-$gray-300: #999999; 
-$gray-200: #BFBFBF; 
-$gray-100: #DBDBDB; 
-$gray-50: #F0F0F0; 
-$gray-10: #FAFAFA;
+$color-blue: #326af3;
+$color-blue2: #007FFF;
+$color-blue3: #00B7FF;
+$color-blue4: #4CBCE4;
+$color-blue-lighten3: #CFE9FF;
+$color-blue-lighten2: #94D2FF;
+$color-blue-lighten1: #41AFFF;
+$color-blue-darken1: #000084;
 
+$color-green: #4CA951; 
+$color-green2: #5CBC62;
+$color-green3: #0D3F3C;
+$color-green4: #017A78;
+$color-green5: #00A2A0;
+
+$color-mint: #00D4D0;
+$color-mint-dark: #005955;
+$color-mint-light1: #82E8E8;
+$color-mint-light2: #C3F6F0;
+
+$color-purple: #6D13F7;
+$color-purple-dark: #37007D;
+$color-purple-light1: #A07DFF;
+$color-purple-light2: #D2C3FF;
+$color-purple2: #4E00C7;
+$color-purple3: #7426ED;
+
+$color-pink: #F000E8;
+$color-pink2: #CE007C;
+$color-pink3: #FCAFFC;
+$color-pink4: #FF80A9;
+$color-pink-dark: #8C0054;
+$color-pink-light1: #FF80FF;
+$color-pink-light2: #FFC2FF;
+
+// Grayscale
+$gray-700: #F1F3F8; 
+$gray-600: #616161; 
+$gray-500: #ACACAC; 
+$gray-400: #888888; 
+$gray-300: #767676; 
+$gray-200: #4D4D4D; 
+$gray-100: #111; 
+
+$color-black: #000;
 $color-white: #fff;
+
 $color-disabled: #F7F7F7;
 $color-box: #F7F7F7;
+
+.btn_border{background-color: $color-primary-lighten40 !important;}
 
 /***** SPACING *****/
 $sp01: 2px;
