@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Slider</title>
+   <script src="../resources/js/jquery-3.6.0.min.js"></script>
+   <script src="../resources/js/swiper.min.js"></script>
+   <script src="../resources/js/common.js"></script>
+   <link rel="stylesheet" href="../resources/css/swiper.min.css">
+   <link rel="stylesheet" href="../resources/css/prism.css">
+   <link rel="stylesheet" href="../resources/css/framework.css">   
+</head>
+
+<body>
+   <div id="container">
+      <!-- contnets -->
+      <div class="contnets">
+         <!-- location -->
+         <div class="location">
+            <span>Grove UI Framework</span>
+            <span>UI Elements</span>
+            <span>Slider</span>
+            <i class="ico_frame_down ico_16"></i>
+         </div>
+         <!--// location -->
+         <!-- framework_sec -->
+         <div class="framework_sec">
+            <h3>Slider - swiper.js</h3>
+            <p class="framework_desc">
+              웹사이트나 앱에서 사용자에게 이미지, 동영상, 텍스트 등의 콘텐츠를 순차적으로 보여주는 UI 요소입니다.<br>
+              대표적인 슬라이더인 오픈소스 JavaScript 라이브러리로 Swiper.js가 있습니다.
+            </p>
+         </div>
+         <!--// framework_sec -->
+         <!-- framework_sec -->
+         <div class="framework_sec">
+            <h4>Getting Started</h4>
+            <div class="box_wrap">
+               <ul class="component_list">
+                  <!-- .component_list li -->
+                  <li>
+                     <h5 class="component_type">Use swiper from CDN</h5>
+                     <div class="snippet_cont">
+                        <div class="snippet" style="display: block;">
+                           <!-- 복사 내용 -->
+                           <textarea name="code" class="language-markup">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script></textarea>
+                           <!--// 복사 내용 -->
+                           <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                           <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                        </div>
+                     </div>
+                  </li>
+                  <!--// .component_list li -->
+                  <!-- .component_list li -->
+                  <li>
+                     <h5 class="component_type"><a href="../swiper_assets.zip" style="text-decoration: underline;">Download assets <i class="ico_16 ico_arr_circle_down"></i></a></h5>
+                     <div class="snippet_cont">
+                        <div class="snippet" style="display: block;">
+                           <!-- 복사 내용 -->
+                           <textarea name="code" class="language-markup">
+<link rel="stylesheet" href="../resources/css/swiper.min.css">
+<script src="../resources/js/swiper.min.js"></script></textarea>
+                           <!--// 복사 내용 -->
+                           <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                           <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                        </div>
+                     </div>
+                  </li>
+                  <!--// .component_list li -->
+               </ul>
+            </div>
+         </div>
+         <!--// framework_sec -->
+         <div class="framework_sec">
+            <h4>Navigation</h4>
+            <div class="box_wrap">
+               <ul class="component_list">
+                  <!-- .component_list li -->
+                  <li>
+                     <h5 class="component_type">default</h5>
+                     <div class="snippet_cont">
+                      <div class="snippet_btn_wrap">
+                         <div class="snippet_item slider_snippet">
+                            <div id="sampleNavi1" class="swiper swiper-container">
+                              <div class="swiper-wrapper">
+                                <div class="swiper-slide" style="height: 150px;border: 1px solid #aaa;">Slide1</div>
+                                <div class="swiper-slide" style="height: 150px;border: 1px solid #aaa;">Slide2</div>
+                                <div class="swiper-slide" style="height: 150px;border: 1px solid #aaa;">Slide3</div>
+                                <div class="swiper-slide" style="height: 150px;border: 1px solid #aaa;">Slide4</div>
+                              </div>
+                              <div class="swiper-button-prev"></div>
+                              <div class="swiper-button-next"></div>
+                            </div><!-- //.swiper-container -->
+                         </div>
+                         <button class="snippet_btn"><i class="ico_frame_code ico_16"></i></button><!-- 코드펼침버튼 -->
+                      </div>
+                      <div class="snippet">
+                         <!-- 복사 내용 -->
+                         <textarea name="code" class="language-markup">
+<div id="swiper1" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div><!-- //.swiper-container -->
+<script>
+  const mySwiper1 = new Swiper('#swiper1', {
+    //...
+    navigation: { // ★ 내비게이션 있을 때
+      nextEl: '#swiper1 .swiper-button-next', 
+      prevEl: '#swiper1 .swiper-button-prev', 
+    }, 
+  });
+</script></textarea>
+                         <!--// 복사 내용 -->
+                         <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                         <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                      </div>
+                   </div>
+                  </li>
+                  <!--// .component_list li -->
+                  <!-- .component_list li -->
+                  <li>
+                     <h5 class="component_type">White circle</h5>
+                     <div class="snippet_cont">
+                      <div class="snippet_btn_wrap">
+                         <div class="snippet_item slider_snippet">
+                            <div id="sampleNavi2" class="swiper swiper-container">
+                              <div class="swiper-wrapper">
+                                <div class="swiper-slide" style="height: 150px;background-color: #f5f5f5;">Slide1</div>
+                                <div class="swiper-slide" style="height: 150px;background-color: #f5f5f5;">Slide2</div>
+                                <div class="swiper-slide" style="height: 150px;background-color: #f5f5f5;">Slide3</div>
+                                <div class="swiper-slide" style="height: 150px;background-color: #f5f5f5;">Slide4</div>
+                              </div>
+                              <div class="swiper-button-prev bg_white"></div>
+                              <div class="swiper-button-next bg_white"></div>
+                            </div><!-- //.swiper-container -->
+                         </div>
+                         <button class="snippet_btn"><i class="ico_frame_code ico_16"></i></button><!-- 코드펼침버튼 -->
+                      </div>
+                      <div class="snippet">
+                         <!-- 복사 내용 -->
+                         <textarea name="code" class="language-markup">
+<div id="swiper2" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+  <div class="swiper-button-prev bg_white"></div><!-- ★ bg_white: 하얀 버튼 class -->
+  <div class="swiper-button-next bg_white"></div>
+</div><!-- //.swiper-container -->
+
+<script>
+  const mySwiper2 = new Swiper('#swiper2', {
+    //...
+    navigation: { // ★ 내비게이션 있을 때
+      nextEl: '#swiper2 .swiper-button-next', 
+      prevEl: '#swiper2 .swiper-button-prev', 
+    }, 
+  });
+</script></textarea>
+                         <!--// 복사 내용 -->
+                         <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                         <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                      </div>
+                   </div>
+                  </li>
+                  <!--// .component_list li -->
+               </ul>
+            </div>
+         </div>
+         <!--// framework_sec -->
+        <!--// framework_sec -->
+        <div class="framework_sec">
+          <h4>Pagination</h4>
+          <div class="box_wrap">
+            <ul class="component_list">
+              <!-- .component_list li -->
+              <li>
+                 <h5 class="component_type">Default</h5>
+                 <div class="snippet_cont">
+                  <div class="snippet_btn_wrap">
+                     <div class="snippet_item slider_snippet">
+                        <div id="samplePagi1" class="swiper swiper-container">
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide1</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide2</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide3</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide4</div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                        </div><!-- //.swiper-container -->
+                     </div>
+                     <button class="snippet_btn"><i class="ico_frame_code ico_16"></i></button><!-- 코드펼침버튼 -->
+                  </div>
+                  <div class="snippet">
+                     <!-- 복사 내용 -->
+                     <textarea name="code" class="language-markup">
+<div id="swiper3" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div><!-- //.swiper-container -->
+
+<script>
+  const mySwiper3 = new Swiper('#swiper3', {
+    //...
+    pagination: { // ★ 페이지네이션 있을 때
+      el: '#swiper3 .swiper-pagination', // ★ 기본은 bullets 유형
+    }, 
+  });
+</script></textarea>
+                     <!--// 복사 내용 -->
+                     <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                     <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                  </div>
+               </div>
+              </li>
+              <!--// .component_list li -->
+              <!-- .component_list li -->
+              <li>
+                 <h5 class="component_type">Fraction - 페이징 숫자 출력</h5>
+                 <div class="snippet_cont">
+                  <div class="snippet_btn_wrap">
+                     <div class="snippet_item slider_snippet">
+                        <div id="samplePagi2" class="swiper swiper-container">
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide1</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide2</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide3</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide4</div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                        </div><!-- //.swiper-container -->
+                     </div>
+                     <button class="snippet_btn"><i class="ico_frame_code ico_16"></i></button><!-- 코드펼침버튼 -->
+                  </div>
+                  <div class="snippet">
+                     <!-- 복사 내용 -->
+                     <textarea name="code" class="language-markup">
+<div id="swiper4" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div><!-- //.swiper-container -->
+
+<script>
+  const mySwiper4 = new Swiper('#swiper4', {
+    //...
+    pagination: {// ★ 페이지네이션 있을 때
+      el: "#swiper4 .swiper-pagination",
+      type: "fraction", // ★ 페이징 유형 'progressbar' | 'bullets' | 'fraction' | 'custom'
+    },
+  });
+</script></textarea>
+                     <!--// 복사 내용 -->
+                     <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                     <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                  </div>
+               </div>
+              </li>
+              <!--// .component_list li -->
+            </ul>
+          </div>
+        </div>
+        <!--// framework_sec -->
+        <!--// framework_sec -->
+        <div class="framework_sec">
+          <h4>scrollbar</h4>
+          <div class="box_wrap">
+            <ul class="component_list">
+              <!-- .component_list li -->
+              <li>
+                 <h5 class="component_type">Default</h5>
+                 <div class="snippet_cont">
+                  <div class="snippet_btn_wrap">
+                     <div class="snippet_item slider_snippet">
+                        <div id="sampleScroll" class="swiper swiper-container">
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide1</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide2</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide3</div>
+                            <div class="swiper-slide" style="height: 150px;border:1px solid #aaa;">Slide4</div>
+                          </div>
+                          <div class="swiper-scrollbar"></div>
+                        </div><!-- //.swiper-container -->
+                     </div>
+                     <button class="snippet_btn"><i class="ico_frame_code ico_16"></i></button><!-- 코드펼침버튼 -->
+                  </div>
+                  <div class="snippet">
+                     <!-- 복사 내용 -->
+                     <textarea name="code" class="language-markup">
+<div id="swiper5" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+  <div class="swiper-scrollbar"></div>
+</div><!-- //.swiper-container -->
+
+<script>
+  const mySwiper5 = new Swiper('#swiper5', {
+    //...
+    scrollbar: { // ★  스크롤바 있을 때
+      el: '#swiper5 .swiper-scrollbar', 
+      draggable: true // ★ 스크롤바 드래그가능 여부
+    }, 
+  });
+</script></textarea>
+                     <!--// 복사 내용 -->
+                     <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                     <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                  </div>
+               </div>
+              </li>
+              <!--// .component_list li -->
+            </ul>
+          </div>
+        </div>
+        <!--// framework_sec -->
+
+         <!--// framework_sec -->
+         <div class="framework_sec">
+            <h4>Type</h4>
+            <div class="box_wrap">
+               <ul class="component_list">
+                  <!-- .component_list li -->
+                  <li>
+                     <h5 class="component_type">Default</h5>
+                     <div class="snippet_cont">
+                      <div class="snippet_btn_wrap">
+                         <div class="snippet_item slider_snippet">
+                            <div id="sampleDefault" class="swiper swiper-container">
+                              <div class="swiper-wrapper">
+                                <div class="swiper-slide" style="position: relative;">
+                                  <img loading="lazy" src="http://placehold.it/800x820?text=slide01" alt>                                  
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <img loading="lazy" src="http://placehold.it/800x820?text=slide02" alt>                                  
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <img loading="lazy" src="http://placehold.it/800x820?text=slide03" alt>                                  
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <img loading="lazy" src="http://placehold.it/800x820?text=slide04" alt>                                  
+                                </div>
+                              </div>
+                              <div class="swiper-pagination"></div>
+                              <div class="swiper-button-prev"></div>
+                              <div class="swiper-button-next"></div>
+                            </div><!-- //.swiper-container -->
+                         </div>
+                         <button class="snippet_btn"><i class="ico_frame_code ico_16"></i></button><!-- 코드펼침버튼 -->
+                      </div>
+                      <div class="snippet">
+                         <!-- 복사 내용 -->
+                         <textarea name="code" class="language-markup">
+<div id="swiper6" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-scrollbar"></div>
+</div>
+<script>
+  const mySwiper6 = new Swiper('#swiper6', {
+    direction: 'horizontal', // 슬라이드 방향
+    initialSlide: 0, // 시작되는 슬라이드 인덱스
+    slidesPerView: 1, // 보여지는 슬라이드 갯수
+    spaceBetween: 0, // 슬라이드 간격
+    autoplay: false, // 자동 재생
+    loop: false, // 무한 루프
+    effect:'slide', // 슬라이드 애니메이션 효과
+    speed: 300, // 슬라이드 애니메이션 속도
+    pagination: { // 페이지네이션 있을 때
+      el: '.swiper-pagination', 
+      type: 'bullets'
+    }, 
+    navigation: { // 내비게이션 있을 때
+      nextEl: '.swiper-button-next', 
+      prevEl: '.swiper-button-prev', 
+    }, 
+    scrollbar: { // 스크롤바 있을 때
+      el: '.swiper-scrollbar', 
+      draggable: true
+    }
+  });
+</script></textarea>
+                         <!--// 복사 내용 -->
+                         <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                         <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                      </div>
+                   </div>
+                  </li>
+                  <!--// .component_list li -->
+                  <!-- .component_list li -->
+                  <li>
+                     <h5 class="component_type">vertical</h5>
+                     <div class="snippet_cont">
+                      <div class="snippet_btn_wrap">
+                         <div class="snippet_item slider_snippet">
+                            <div id="sampleVertical" class="swiper swiper-container">
+                              <div class="swiper-wrapper">
+                                <div class="swiper-slide" style="position: relative;">
+                                  <img loading="lazy" src="http://placehold.it/400x400?text=slide01" alt>                                  
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <img loading="lazy" src="http://placehold.it/400x400?text=slide02" alt>                                  
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <img loading="lazy" src="http://placehold.it/400x400?text=slide03" alt>                                  
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <img loading="lazy" src="http://placehold.it/400x400?text=slide04" alt>                                  
+                                </div>
+                              </div>
+                              <div class="swiper-pagination"></div>
+                            </div><!-- //.swiper-container -->
+                         </div>
+                         <button class="snippet_btn"><i class="ico_frame_code ico_16"></i></button><!-- 코드펼침버튼 -->
+                      </div>
+                      <div class="snippet">
+                         <!-- 복사 내용 -->
+                         <textarea name="code" class="language-markup">
+<div id="swiper7" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-scrollbar"></div>
+</div>
+
+<script>
+  const mySwiper7 = new Swiper('#swiper7', {
+    direction: 'vertical', // ★ 슬라이드 방향
+    initialSlide: 0, // 시작되는 슬라이드 인덱스
+    slidesPerView: 1, // 보여지는 슬라이드 갯수
+    spaceBetween: 0, // 슬라이드 간격
+    autoplay:'false', // 자동 재생
+    loop:'false', // 무한 루프
+    effect:'slide', // 슬라이드 애니메이션 효과
+    speed: 300, // 슬라이드 애니메이션 속도
+    pagination: { // 페이지네이션 있을 때
+      el: '.swiper-pagination', 
+    },
+    height:820,// ★ 슬라이드 높이 (css .swiper-container-vertical로 설정 가능)
+  });
+</script></textarea>
+                         <!--// 복사 내용 -->
+                         <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                         <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                      </div>
+                   </div>
+                  </li>
+                  <!--// .component_list li -->
+                  <!-- .component_list li -->
+                  <li>
+                     <h5 class="component_type">ThumbsSlider</h5>
+                     <div class="snippet_cont">
+                      <div class="snippet_btn_wrap">
+                         <div class="snippet_item slider_snippet">
+                            <div id="sampleThumbs1" class="swiper swiper-container" style="width:500px;margin:0">
+                              <div class="swiper-wrapper">
+                                <div class="swiper-slide" style="position: relative;">
+                                  <div style="width: 500px;height: 400px; background-color: #F0F0F0;">Slide1</div>
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <div style="width: 500px;height: 400px; background-color: #DBDBDB;">Slide2</div>
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <div style="width: 500px;height: 400px; background-color: #BFBFBF;">Slide3</div>
+                                </div>
+                                <div class="swiper-slide" style="position: relative;">
+                                  <div style="width: 500px;height: 400px; background-color: #999999;">Slide4</div>
+                                </div>
+                              </div>
+                              <div class="swiper-button-prev"></div>
+                              <div class="swiper-button-next"></div>
+                            </div><!-- //.swiper-container -->
+                            <div id="sampleThumbs2" thumbsSlider="" class="swiper swiper-container" style="width:500px;margin:0">
+                              <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                  <div style="width: 160px;height: 160px; background-color: #F0F0F0;">Slide1</div>
+                                </div>
+                                <div class="swiper-slide">
+                                  <div style="width: 160px;height: 160px; background-color: #DBDBDB;">Slide2</div>
+                                </div>
+                                <div class="swiper-slide">
+                                  <div style="width: 160px;height: 160px; background-color: #BFBFBF;">Slide3</div>
+                                </div>
+                                <div class="swiper-slide">
+                                  <div style="width: 160px;height: 160px; background-color: #999999;">Slide4</div>
+                                </div>
+                              </div>
+                            </div><!-- //.swiper-container -->
+                         </div>
+                         <button class="snippet_btn"><i class="ico_frame_code ico_16"></i></button><!-- 코드펼침버튼 -->
+                      </div>
+                      <div class="snippet">
+                        <!-- 복사 내용 -->
+                        <textarea name="code" class="language-markup">
+<div id="swiper8" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div><!-- //.swiper-container -->
+<div id="swiper9" thumbsSlider="" class="swiper swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div style="height:200px;">Slide1</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide2</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide3</div></div>
+    <div class="swiper-slide"><div style="height:200px;">Slide4</div></div>
+  </div>
+</div>
+<!-- //.swiper-container -->
+<script>
+const mySwiper9 = new Swiper('#swiper9' , {
+  slidesPerView: 3,
+  spaceBetween: 4,
+  freeMode:true,
+  watchSlidesProgress:true
+});
+const mySwiper8 = new Swiper('#swiper8' , {
+  thumbs: {
+    swiper: mySwiper9,
+  },
+  navigation: {
+    prevEl: '#swiper8 .swiper-button-prev',
+    nextEl: '#swiper8 .swiper-button-next',
+  },
+});
+mySwiper8.controller.control = mySwiper9;
+</script></textarea>
+                         <!--// 복사 내용 -->
+                         <button class="copy_btn"><i class="ico_frame_copy ico_24"></i></button><!-- 코드복사버튼 -->
+                         <div class="copy_alert">소스 코드가 복사되었습니다.</div><!-- 코드복사알림 -->
+                      </div>
+                   </div>
+                  </li>
+                  <!--// .component_list li -->
+               </ul>
+            </div>
+         </div>
+         <!--// framework_sec -->
+      </div>
+      <!--// contnets -->
+      <footer>
+         Currently v1.1.0
+      </footer>
+   </div>
+</body>
+<script src="../resources/js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="../resources/js/prism.js"></script>
+<script>
+   //common.js
+   snippetCopy();   
+</script>
+<script>
+  $(window).on('load', function () {
+    swiperSlider();
+  });
+  function swiperSlider(){
+    $(".swiper").each(function(index, item){    
+      let swiperId = '#' + $(item).attr('id');
+      let swiper = undefined;
+      
+      if(swiperId == '#sampleThumbs1' || swiperId == '#sampleThumbs2'){
+        thumbsSliderInit();
+        return;
+        function thumbsSliderInit(){
+          let mySwiper2 = new Swiper('#sampleThumbs2' , {
+            slidesPerView: 3,
+            spaceBetween: 8,
+          });
+          let mySwiper1 = new Swiper('#sampleThumbs1' , {
+            thumbs: {
+              swiper: mySwiper2,
+            },
+            navigation: {
+              prevEl: '#sampleThumbs1 .swiper-button-prev',
+              nextEl: '#sampleThumbs1 .swiper-button-next',
+            },
+          });
+          mySwiper1.controller.control = mySwiper2;
+        }
+      };
+      sliderInit();
+      function sliderInit(){
+        //슬라이드 초기화 
+        if (swiper != undefined ){ 
+          swiper = undefined;
+          swiper.destroy();
+        }
+
+        if(swiperId == '#sampleScroll'){
+          swiper = new Swiper(swiperId , {
+            scrollbar:{
+              el:$( swiperId + " .swiper-scrollbar"),
+              draggable: true
+            }
+          })
+          return
+        };
+        if(swiperId == '#samplePagi2'){
+          swiper = new Swiper(swiperId, {
+            pagination:{
+              el:$( swiperId + " .swiper-pagination"),
+              type:'fraction'
+            },
+          });//swiper
+          return;
+        };
+        
+        swiper = new Swiper(swiperId, {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          initialSlide: 0,
+          loop: false,
+          navigation: {
+              prevEl: $( swiperId + " .swiper-button-prev"),
+              nextEl: $( swiperId + " .swiper-button-next"),
+          },
+          pagination:{
+            el:$( swiperId + " .swiper-pagination"),
+          },
+          scrollbar:{
+            el:$(swiperId + " .swiper-scrollbar")
+          }
+        });//swiper
+
+        //수직 swiper
+        if(swiper.params.el == '#sampleVertical'){
+          swiper.changeDirection("vertical", true);
+          swiper.params.slidesPerView = 1;
+          return;
+        };
+      };
+    });
+  };
+</script>
+</html>
