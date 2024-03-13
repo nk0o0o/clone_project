@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Typography</title>
+   <script src="../resources/js/jquery-3.6.0.min.js"></script>
+   <script src="../resources/js/common.js"></script>
+   <link rel="stylesheet" href="../resources/css/prism.css">
+   <link rel="stylesheet" href="../resources/css/style.css">
+</head>
+
+<body>
+   <div id="container">
+      <!-- contnets -->
+      <div class="contnets">
+         <!-- location -->
+         <div class="location">
+            <span>Grove UI Framework</span>
+            <span>Guidelines</span>
+            <span>Typography</span>
+            <i class="ico_frame_down ico_16"></i>
+         </div>
+         <!--// location -->
+         <!-- framework_sec -->
+         <div class="framework_sec">
+            <h3>Typography</h3>
+            <p class="framework_desc">
+               타이포그래피를 사용하여 디자인과 콘텐츠를 최대한 명확하고 효율적으로 표현합니다.
+            </p>
+         </div>
+         <!--// framework_sec -->
+         <!-- framework_sec -->
+         <div class="framework_sec">
+            <h4>Typeface</h4>
+            <div class="box_wrap">
+               <div class="component_guideline">
+                  <ul class="guide_list typo_list">
+                     <li>
+                        <h5 class="tit">Korean</h5>
+                        <div class="cont">
+                           <div class="component_code">
+                              //Default font<br>
+                              $font-noto: "<em>Noto Sans KR</em>", sans-serif;<br>
+                              <em>.font_noto</em>{font-family: $font-noto;}<br>
+                              <em>.font_kr</em>{font-family: $font-noto;}
+                              <br><br>
+                              //Embedded font<br>
+                              $font-aritadotum: "<em>AritaDotum</em>", sans-serif;<br>
+                              $font-lgsmha: "<em>LGSmHa</em>", sans-serif;<br><br>
+                              <em>.font_aritadotum</em>{font-family: $font-aritadotum;}<br>
+                              <em>.font_lgsmha</em>{font-family: $font-lgsmha;}<br>
+                              <em>.font_SUIT</em>{font-family: $font-SUIT;}
+                           </div>
+                        </div>
+                     </li>
+                     <li>
+                        <h5 class="tit">English</h5>
+                        <div class="cont">
+                           <div class="component_code">
+                              //Default font<br>
+                              $font-pop: "<em>Poppins</em>", sans-serif;<br>
+                              <em>.font_pop</em>{font-family: $font-pop;}<br>
+                              <em>.font_en</em>{font-family: $font-pop;}
+                              <br><br>
+                              //Embedded font<br>
+                              $font-aritasans: "<em>AritaSans</em>", sans-serif;<br>
+                              $font-lgsmha: "<em>LGSmHa</em>", sans-serif;<br>
+                              $font-APHQ: "<em>APHQ</em>", sans-serif;<br><br>
+
+                              <em>.font_sans</em>{font-family: $font-sans;}<br>
+                              <em>.font_lgsmha</em>{font-family: $font-lgsmha;}<br>
+                              <em>.font_lAPHQ</em>{font-family: $font-APHQ;}
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+                  <div class="component_desc">폰트는 내장된 웹 폰트를 사용합니다.<br>폰트 타입 코드를 변수에 저장하고 수정할 때는 변수의 값만 변경하여 간단하게 적용합니다.
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--// framework_sec -->
+         <!-- framework_sec -->
+         <div class="framework_sec">
+            <h4>Weights</h4>
+            <div class="box_wrap">
+               <div class="component_guideline">
+                  <ul class="guide_list typo_list">
+                     <li>
+                        <h5 class="tit">Korean</h5>
+                        <div class="cont">
+                           <ul class="component_code component_code_typo">
+                              <li>
+                                 <p class="code_tit">Light 300</p>
+                                 <p class="code_cont fw_l font_kr">모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</p>
+                              </li>
+                              <li>
+                                 <p class="code_tit">Regular 400</p>
+                                 <p class="code_cont fw_r font_kr">모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</p>
+                              </li>
+                              <li>
+                                 <p class="code_tit">Medium 500</p>
+                                 <p class="code_cont fw_m font_kr">모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</p>
+                              </li>
+                              <li>
+                                 <p class="code_tit">Bold 700</p>
+                                 <p class="code_cont fw_b font_kr">모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를 인정하는</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <h5 class="tit">English</h5>
+                        <div class="cont">
+                           <ul class="component_code component_code_typo">
+                              <li>
+                                 <p class="code_tit">Regular 400</p>
+                                 <p class="code_cont fw_r">Almost before we knew it, we had left the ground.</p>
+                              </li>
+                              <li>
+                                 <p class="code_tit">Medium 500</p>
+                                 <p class="code_cont fw_m">Almost before we knew it, we had left the ground.</p>
+                              </li>
+                              <li>
+                                 <p class="code_tit">SemiBold 600</p>
+                                 <p class="code_cont fw_sb">Almost before we knew it, we had left the ground.</p>
+                              </li>
+                              <li>
+                                 <p class="code_tit">Bold 700</p>
+                                 <p class="code_cont fw_b">Almost before we knew it, we had left the ground.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <!--// framework_sec -->
+         <!-- framework_sec -->
+         <div class="framework_sec">
+            <h4>Example type scale</h4>
+            <div class="box_wrap">
+               <div class="component_guideline">
+                  <h1 class="font_en">Heading 1</h1>
+                  <h2 class="font_en">Heading 2</h2>
+                  <h3 class="font_en">Heading 3</h3>
+                  <h4 class="font_en">Heading 4</h4>
+                  <h5 class="font_en">Heading 5</h5>
+                  <h6 class="font_en">Heading 6</h6><br>
+                  <p class="txt_body1 font_en">
+                     Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde
+                     <br>suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+                     <br>dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                  </p><br>
+                  <p class="txt_body2 font_en">
+                     Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde<br>
+                     suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos
+                     <br>laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                  </p><br>
+                  <button class="btn font_en" style="padding: 0;">Button Text</button><br>
+                  <p class="txt_caption font_en">
+                     <caption class="font_en">Caption</caption>
+                  </p>
+               </div>
+               <p class="component_code">
+                  html {font-size: 10px;}<br>
+                  h1 {font-size: 5.4rem;}<br>
+                  h2 {font-size: 4.2rem;}<br>
+                  h3 {font-size: 3.2rem;}<br>
+                  h4 {font-size: 2.4rem;}<br>
+                  h5 {font-size: 2rem;}<br>
+                  h6 {font-size: 1.8rem;}<br>
+                  .txt_body1 {font-size: 1.6rem;}<br>
+                  .txt_body2 {font-size: 1.4rem;}<br>
+                  button.btn {font-size: 1.4rem;}<br>
+                  caption {font-size: 1.2rem;}
+               </p>
+            </div>
+         </div>
+         <!--// framework_sec -->
+         <!-- framework_sec -->
+         <div class="framework_sec">
+            <h4>Scale</h4>
+            <div class="box_wrap">
+               <div class="component_guideline">
+                  <table class="typo_scale_tbl tbl">
+                     <caption></caption>
+                     <colgroup>
+                        <col style="width: 200px;">                        
+                        <col style="width: auto;">                        
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>rem</th>
+                           <th>px</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr class="fs__10">
+                           <td>1</td>
+                           <td> Font size 10px</td>
+                        </tr>
+                        <tr class="fs__12">
+                           <td>1.2</td>
+                           <td> Font size 12px</td>
+                        </tr>
+                        <tr class="fs__14">
+                           <td>1.4</td>
+                           <td> Font size 14px</td>
+                        </tr>
+                        <tr class="fs__16">
+                           <td>1.6</td>
+                           <td> Font size 16px</td>
+                        </tr>
+                        <tr class="fs__18">
+                           <td>1.8</td>
+                           <td> Font size 18px</td>
+                        </tr>
+                        <tr class="fs__20">
+                           <td>2</td>
+                           <td> Font size 20px</td>
+                        </tr>
+                        <tr class="fs__24">
+                           <td>2.4</td>
+                           <td> Font size 24px</td>
+                        </tr>
+                        <tr class="fs__28">
+                           <td>2.8</td>
+                           <td> Font size 28px</td>
+                        </tr>
+                        <tr class="fs__32">
+                           <td>3.2</td>
+                           <td> Font size 32px</td>
+                        </tr>
+                        <tr class="fs__36">
+                           <td>3.6</td>
+                           <td> Font size 36px</td>
+                        </tr>
+                        <tr class="fs__42">
+                           <td>4.2</td>
+                           <td> Font size 42px</td>
+                        </tr>
+                        <tr class="fs__48">
+                           <td>4.8</td>
+                           <td> Font size 48px</td>
+                        </tr>
+                        <tr class="fs__54">
+                           <td>5.4</td>
+                           <td> Font size 54px</td>
+                        </tr>
+                        <tr class="fs__60">
+                           <td>6</td>
+                           <td> Font size 60px</td>
+                        </tr>
+                        <tr class="fs__68">
+                           <td>6.8</td>
+                           <td> Font size 68px</td>
+                        </tr>
+                        <tr class="fs__76">
+                           <td>7.6</td>
+                           <td> Font size 76px</td>
+                        </tr>
+                        <tr class="fs__84">
+                           <td>8.4</td>
+                           <td> Font size 84px</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <!--// framework_sec -->
+      </div>
+      <!--// contnets -->
+      <footer>
+         Currently v1.1.0
+      </footer>
+   </div>
+</body>
+<script src="../resources/js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="../resources/js/prism.js"></script>
+<script>
+   //common.js
+   snippetCopy()
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+  $marquee-size: 150px;
+  $marquee-num:6;
+  $marquee-gap: calc( $marquee-size / calc(($marquee-num - 1))/2);
+  $marquee-duration: 60s;
+  $marquee-scroll-start: 0;
+  $marquee-scroll-end: calc(-100% - $marquee-gap);
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: calc($marquee-size / calc(($marquee-num - 1))/2);
+  a{
+    display: grid;
+    place-items: center;
+    width: $marquee-size;
+  }
+  img{
+    width:100%;
+    object-fit: cover;
+  }
+  &_wrap{
+    display: flex;
+    gap: $marquee-gap;
+    flex-direction: column;
+  }
+  &_group {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: calc($marquee-size / 14);
+    min-width: 100%;
+    //animation: scroll-x $marquee-duration linear infinite;
+  }
+  &_reverse .marquee_group {
+    animation-direction: reverse;
+    animation-delay: -3s;
+  }
+}
+
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - calc($marquee-size / 14)));
+  }
+}
