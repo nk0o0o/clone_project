@@ -9,6 +9,7 @@
 //common 
 @import '_reset';
 @import '_font';
+@import '_mouseCursor';
 
 //components 
 @import '_component';
@@ -33,3 +34,4 @@
 @import '_common'; //header, footer, gnb, lnb...
 //pages
 @import '_main';
+@import '_sub';

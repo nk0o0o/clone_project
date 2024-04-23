@@ -123,12 +123,20 @@ button {
       }
    }
    &_border {
-      color: $gray-600;
-      border: 1px solid  $gray-600;
+      color: $gray-300;
+      border: 1px solid transparent;
       background-color: $color-white;
+      transition: all 0.3s linear;
+      min-height: 0;
+      padding: 0;
       &:hover {
-         background-color: rgba($color-primary, 0.051);
-      }     
+        color: $gray-600;
+      }
+      &.active {
+        border: 1px solid  $gray-600;
+        color: $gray-600;
+        padding: 8px 16px;
+      }
    }
    &_green {
       color: $color-white !important;
@@ -174,6 +182,18 @@ button {
    //아이콘만 있는 버튼
    &.btn_icon {
       justify-content: center;
+      border: 1px solid $gray-400;
+      &.btn_srl_down, &.btn_srl_top{
+        width: 35px;
+        min-height: 35px;
+        padding: 4px;
+      }
+      &.btn_srl_down{
+        border: 1px solid $color-white;
+        i[class*="ico_"]::before{
+          background-color: $color-white;
+        }
+      }
       i {
          &[class*="ico_16"] {
             margin: $sp02;
@@ -196,7 +216,6 @@ button {
       display: inline-block;
     }
     .ico_arr_right{
-      border: 1px solid;
       border-radius: 100%;
       background-color: $gray-600;      
       &::after {
@@ -219,5 +238,116 @@ button {
         background-color: $color-white;
       }
     }
+    &.btn_white{
+      background-color: transparent;
+      color: $color-white;
+      border: 0;
+      span{
+        color: $color-white;
+      }
+      .ico_arr_right{
+        border-radius: 100%;
+        background-color: $color-white;
+        &::before, &::after {
+          mask-size: 80%;
+          mask-position:center;
+          background-color: $gray-600;
+        }
+      }
+    }
    }
+}
+// 햄버거 버튼
+.btn_hamburger{
+  display: flex;
+  width: 20px;
+  flex-direction: column;
+  gap: 4px; 
+  span{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background-color: $gray-600;
+    transition: background-color 0.2s;
+  }
+  
+  &.is_closed{
+    span{
+      &:nth-last-child(2){
+        opacity: 1;
+        transition: opacity 0.1s;
+      }
+    }
+    .left{
+      top: 0px;
+      transform: rotate(0deg); 
+      transition: top 0.3s 0.3s, transform 0.3s;
+    }
+    .right{
+      top: 0px;
+      transform: rotate(0deg);
+      transition: top 0.3s 0.3s, transform 0.3s;        
+    }
+  }
+  &.is_open{
+    span{
+      &:nth-last-child(2){
+        opacity: 0;
+        transition: opacity 0.1s;
+      }
+    }
+    .left{
+      top: 5px;      
+      transform: rotate(45deg);
+      transition: top 0.3s, transform 0.3s 0.3s;    
+    }
+    .right{
+      top: -5px;      
+      transform: rotate(-45deg);
+      transition: top 0.3s, transform 0.3s 0.3s;
+    }
+  }
+
+
+  /* &.is_closed{
+    span{
+      &:nth-last-child(2){
+        opacity: 1;
+      }
+    }
+    .left{
+      animation: ham_left 0.3s 0.2s reverse;
+    }
+    .right{
+      animation: ham_right 0.3s 0.2s reverse;
+    }
+  }
+  &.is_open{
+    span{
+      &:nth-last-child(2){
+        opacity: 0;
+      }
+      &.left{
+        animation: ham_left 0.3s forwards;
+
+      }
+      &.right{
+        animation: ham_right 0.3s forwards;
+      }
+    }
+  }
+  @keyframes ham_left {
+    0%{transform: translateY(0px) rotate(0deg);}
+    60%{transform: translateY(5px)}
+    100%{transform: translateY(5px) rotate(45deg);}
+  }
+  @keyframes ham_right {
+    0%{transform: translateY(0px) rotate(0deg);}
+    60%{transform: translateY(-5px)}
+    100%{transform: translateY(-5px) rotate(-45deg);}
+  }
+   */
+
+
 }

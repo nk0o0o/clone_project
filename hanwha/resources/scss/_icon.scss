@@ -651,4 +651,14 @@
          @include iconImgPath("ico_zoom.svg");
       }
    }
+   &_scrl_top {
+      &::before {         
+         @include iconImgPath("ico_arrow-scroll-top-b.svg");
+      }
+   }
+   &_scrl_down {
+      &::before {         
+         @include iconImgPath("ico_arrow-scroll-bottom-w.svg");
+      }
+   }
 }

@@ -9,18 +9,18 @@ h1 {
    line-height: 1.37;
 }
 h2 {
-   font-size: $fs-xlg;
-   font-weight: $fw-sb;
-   line-height: 1.52;
+   font-size: $fs-xxlg;
+   font-weight: $fw-l;
+   line-height: 1.25;
 }
 h3 {
-   font-size: $fs-l;
-   font-weight: $fw-m;
-   line-height: 1.5;
+   font-size: $fs-xlg;
+   font-weight: $fw-t;
+   line-height: 1.15;
 }
 h4 {
    font-size: $fs-md;
-   font-weight: $fw-m;
+   font-weight: $fw-t;
    line-height: 1.41;
 }
 h5 {
@@ -39,14 +39,14 @@ caption {
 }
 .txt {
    &_body1 {
-      font-size: $fs-s;
-      font-weight: $fw-m;
+      font-size: $fs-m;
+      font-weight: $fw-n;
       line-height: 1.625;
    }
    &_body2 {
-      font-size: $fs-xs;
+      font-size: $fs-xlg;
       font-weight: $fw-n;
-      line-height:1.71;
+      line-height:1;
    }
    &_btn {
       font-size: $fs-xs;
@@ -476,19 +476,30 @@ caption {
 
 //Hover animation
 .ani_hover{
+  .ani_group{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    transform: translate3d(0, 0, 0);
+    transition: transform .2s linear;
+  }
+  //Button Scroll
+  &.btn_srl_top, &.btn_srl_down{
+    height: 35px;
+    overflow: hidden;
+    transition: all .3s linear;
+  }
+  &.btn_srl_down{
+    .ani_group{
+      transform: translate3d(0, -50%, 0);
+    }
+  }
   //Button Text
   &.btn_text{
     height: 22px;
     overflow: hidden;
     span{
       transition: color .4s linear;
-    }
-    .ani_group{
-      align-self: flex-start;
-      display: flex;
-      flex-direction: column;
-      transform: translate3d(0, 0, 0);
-      transition: transform .3s linear;
     }
     .ico_arr_right{
       overflow: hidden;
@@ -500,9 +511,21 @@ caption {
 }
 
 @media (hover: hover) {
-  //Hover animation
+  //Hover effect
   .ani_hover{
     &:hover{
+      .ani_group{
+        transform: translate3d(0, -50%, 0);
+      }
+      //Button Scroll
+      &.btn_srl_top{
+        border-color: $gray-600;
+      }
+      &.btn_srl_down{
+        .ani_group{
+          transform: translate3d(0, 0%, 0);
+        }
+      }
       //Button Text
       &.btn_text{
         span{
@@ -510,14 +533,18 @@ caption {
             color: $gray-500;
           }
         }
-        .ani_group{
-          transform: translate3d(0, -50%, 0);
-        }
         .ico_arr_right::before{
           transform: translate3d(100%, -50%, 0);
         }
         .ico_arr_right::after{
           transform: translate3d(0, -50%, 0);
+        }
+        &.btn_white{
+          span{
+            &:nth-child(2){
+              color: rgba($color: $color-white, $alpha: 0.7);
+            }
+          }
         }
       }
     }

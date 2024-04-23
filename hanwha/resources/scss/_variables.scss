@@ -1,7 +1,9 @@
 /***** BREAKPOINT *****/
-$breakpoint-mobile: 480px;
+//@media screen and (max-width: 768px){}
+//max-width 기준
+$breakpoint-mobile: 320px;
 $breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;
+$breakpoint-desktop: 1200px;
 
 /*****  FONT *****/
 // Font Family
@@ -20,7 +22,8 @@ $fs-ml: 1.25rem; // 20
 $fs-l: 1.375rem; // 22
 $fs-lg: 1.5rem; // 24
 $fs-xlg: 2.8125rem; // 45
-
+$fs-xxlg: 3.75rem; // 60
+//5.25rem -84
 // Font Weight
 $fw-t: 100; // thin // hanwhaL // HanwhaGothicEL
 $fw-l: 300; // light // HanwhaGothicL
@@ -59,7 +62,7 @@ $gray-10: #f6f6f6;
 $color-white: #fff;
 $color-disabled: #F7F7F7;
 $color-box: #F7F7F7;
-$color-border:$gray-400;
+$color-border:rgba($gray-600, 0.1);
 
 // 주요 색상
 $color-primary: $color-orange;

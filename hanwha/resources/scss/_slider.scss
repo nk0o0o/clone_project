@@ -1,5 +1,12 @@
 //Pagination
 .swiper-pagination {
+  &-btn{
+    .swiper-pagination-bullet-active{
+      border: 1px solid #000000;
+      color: #000000;
+      padding: 8px 16px;
+    }
+  }
 	&-bullet {
 		width: 6px;
 		height: 6px;
