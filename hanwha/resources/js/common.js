@@ -195,19 +195,6 @@ $(document).ready(function () {
    /****** Accordion ******/
    $(".accord_head").click(function (){accordionUI(this)});
  
-   function accordionUI(el){
-      if ($(el).hasClass("on")) {
-         $(el).removeClass("on");
-         $(el).find(".accord_cont").stop().slideUp();
-      } else {
-         $(el).parent('.accord_list').find('.accord_head').removeClass("on");
-         $(el).parent('.accord_list').find(".accord_cont").stop().slideUp();
-         $(el).addClass("on");
-         $(el).find(".accord_cont").stop().slideDown();
-      }
-   }
-
-
    /****** Data Tables ******/
    $('.dataTables_wrapper .dataTables_length').click(function () {
       $(this).toggleClass('on');
@@ -334,7 +321,7 @@ $(document).ready(function () {
     }
   }); */
   $(document).on('click', function (e) {
-    if($(e.target).is('.h_language') || $(e.target).is('.ico_global')){
+    if( $(e.target).is('.ico_global')){
       if(!$('.h_language').hasClass('open')) {
         $('.h_language').addClass('open');
       }else{
@@ -347,6 +334,25 @@ $(document).ready(function () {
 
   if($('header').length >= 1){headerScroll(); gnbEvent()}
 }) //ready
+
+function accordionUI(el){
+  if($(el).find(".accord_cont").length < 1){
+    return false;
+  }
+  if(!$(el).hasClass("on")){
+    $(el).parents('.accord_list').find('.accord_head').removeClass("on");
+    $(el).parents('.accord_list').find(".accord_cont").slideUp({duration: 500,easing: 'linear'});
+    $(el).addClass("on");
+    $(el).find(".accord_cont").slideDown({duration: 500,easing: 'linear'});
+    return false
+  }
+
+  if ($(el).hasClass("on")) {
+    $(el).removeClass("on");
+    $(el).find(".accord_cont").slideUp({duration: 500,easing: 'linear'});
+    return false
+  }
+}
 
 //File Uploader - Remove Choosed File
 function removeFilename(t) {
@@ -437,17 +443,21 @@ function headerScroll() {
     },
   })
 
-  $('.h_allmenu button').click(function(){
+  $('.h_allmenu button').click(function(){    
     if($(this).hasClass('is_open')){
       $(this).removeClass('is_open')
       $(this).addClass('is_closed')
       $('body').removeClass('no_scroll')
       $('.site_map').delay(300).fadeOut(300);
+      $('.gnb').removeClass('hidden');
+      $('header').removeClass('mo_sitemap_on');
     }else{
       $(this).removeClass('is_closed')
       $(this).addClass('is_open')
       $('body').addClass('no_scroll') 
       $('.site_map').fadeIn(300);
+      $('.gnb').addClass('hidden');
+      $('header').addClass('mo_sitemap_on');
     }
   })
   //$('.site_map')
@@ -455,11 +465,41 @@ function headerScroll() {
 
 //Main Video Control
 window.addEventListener('load', function(){
-  const videoDuration = document.querySelector('video').duration;
-  const MainVideo = $('.sec_visual').find('video').get(0);
-  $(MainVideo).on('timeupdate', function(){
-    let videoCurrent = (MainVideo.currentTime /videoDuration * 100);
-    $('.sec_visual .progressbar').find('span').css('width', `${videoCurrent}%`)
-  });
-  MainVideo.paused ? MainVideo.play() : MainVideo.pause();
+  if($('main video').length > 0){
+    mainVideo();
+  }
+  function mainVideo(){
+    const videoDuration = document.querySelector('video').duration;
+    const MainVideo = $('.sec_visual').find('video').get(0);
+    $(MainVideo).on('timeupdate', function(){
+      let videoCurrent = (MainVideo.currentTime /videoDuration * 100);
+      $('.sec_visual .progressbar').find('span').css('width', `${videoCurrent}%`)
+    });
+    MainVideo.paused ? MainVideo.play() : MainVideo.pause();
+  }
 })
+
+$(document).ready(function(){
+  
+  let timer = null;
+  const siteHead= $(".site_map .accord_head");
+
+  if( $(window).outerWidth() > 768){
+    $(".site_map .accord_head").off('click');
+  }
+
+  $(window).on('resize', function(){//resize modal
+    clearTimeout(timer);
+    timer = setTimeout(siteAccord, 200);
+    function siteAccord(){
+      let wW =   $(window).outerWidth();
+      $(".site_map .accord_cont").css('display', 'none')
+      if(wW > 768){
+        siteHead.off('click');
+        siteHead.removeClass('on')
+      }else{
+        siteHead.on('click', function(){accordionUI(this)});
+      }
+    }
+  })
+})//ready

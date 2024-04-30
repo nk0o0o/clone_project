@@ -133,15 +133,15 @@
 }
 
 @mixin blind {
-	position:absolute;
-	overflow:hidden;
-	width:1px;
-	height:1px;
-	margin:-1px;
-	padding:0;
-	text-indent:-9999px;
-	border:0;
-	clip:rect(0,0,0,0);
+	position:absolute !important;
+	overflow:hidden !important;
+	width:1px !important;
+	height:1px !important;
+	margin:-1px !important;
+	padding:0 !important;
+	text-indent:-9999px !important;
+	border:0 !important;
+	clip:rect(0,0,0,0) !important;
 }
 
 @mixin iconImgPath($iconName) {

@@ -10,7 +10,7 @@
   <script src="../resources/js/gsap.min.js"></script>
   <script src="../resources/js/ScrollTrigger.min.js"></script>
   <script src="../resources/js/swiper.min.js"></script>
-  <script src="../resources/js/common.js"></script>
+  <script src="../resources/js/common.js" defer></script>
   <link rel="stylesheet" href="../resources/css/swiper.min.css">
   <link rel="stylesheet" href="../resources/css/style.css">
 </head>
@@ -348,10 +348,10 @@
       yPercent: -37,
       ease: "none",
     })
+  
     let ftH
     let timer;
     let g_footer;
-  
     $(window).on('resize', function(){
       clearTimeout(timer);
       timer = setTimeout(function(){

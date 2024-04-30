@@ -14,7 +14,135 @@ var include = {
   },
   header: function () {
     document.write(
-      `<header>
+      `
+      <!-- site_map -->
+      <div class="site_map">
+        <nav class="inner">
+          <ul class="depth_1 accord_list arr_right_list">
+            <li class="accord_head">
+              <a href="#" class="accord_tit">WHO WE ARE</a>
+              <ul class="depth_2 accord_cont">
+                <li><a href="#">기업소개</a></li>
+                <li><a href="#">연혁</a></li>
+                <li>
+                  <a href="#">사업장 소개</a>
+                  <ul class="depth_3">
+                    <li><a href="#">국내사업장</a></li>
+                    <li><a href="#">해외사업장</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- //depth_2 -->
+            </li>
+            <li class="accord_head no_cont">
+              <a href="#" class="accord_tit">WHY WE EXIST</a>
+            </li>
+            <li class="accord_head">
+              <a href="#" class="accord_tit">WHAT WE DO</a>
+              <!-- depth_2 -->
+              <ul class="depth_2 accord_cont">
+                <li><a href="#">Virtual<span class="br_pc">&nbsp;</span>Showroom</a></li>
+                <li><a href="#">Sustainable<span class="br_pc">&nbsp;</span>Technologies</a></li>
+                <li>
+                  <a href="#">Products&<span class="br_pc">&nbsp;</span>Services</a>
+                  <ul class="depth_3">
+                    <li><a href="#">Space</a></li>
+                    <li><a href="#">Air</a></li>
+                    <li><a href="#">Land</a></li>
+                    <li><a href="#">Sea</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Discover</a></li>
+                <li><a href="#">Protect</a></li>
+              </ul>
+              <!-- //depth_2 -->
+            </li>
+            <li class="accord_head">
+              <a href="#" class="accord_tit">IR</a>
+              <!-- depth_2 -->
+              <ul class="depth_2 accord_cont">
+                <li><a href="#">실적발표</a></li>
+                <li><a href="#">IR 일정</a></li>
+                <li>
+                  <a href="#">재무정보</a>
+                  <ul class="depth_3">
+                    <li><a href="#">연결 재무제표</a></li>
+                    <li><a href="#">별도 재무제표</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">주식정보</a></li>
+                <li><a href="#">공시정보</a></li>
+                <li>
+                  <a href="#">전자공고</a>
+                  <ul class="depth_3">
+                    <li><a href="#">공고</a></li>
+                    <li><a href="#">사업보고서</a></li>
+                    <li><a href="#">감사보고서</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- // depth_2 -->
+            </li>
+            <li class="accord_head">
+              <a href="#" class="accord_tit">MEDIA</a>
+              <!-- depth_2 -->            
+              <ul class="depth_2 accord_cont">
+                <li><a href="#">뉴스룸</a></li>
+                <li><a href="#">라이브러리</a></li>
+                <li><a href="#">공지사항</a></li>
+              </ul>
+              <!-- // depth_2 -->
+            </li>
+            <li class="accord_head">
+              <a href="#" class="accord_tit">ESG</a>
+              <!-- depth_2 -->            
+              <ul class="depth_2 accord_cont">
+                <li><a href="#">지속가능경영</a></li>
+                <li>
+                  <a href="#">윤리준법경영</a>
+                  <ul class="depth_3">
+                    <li><a href="#">윤리준법경영 소개</a></li>
+                    <li><a href="#">주요 프로그램</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">환경안전보건경영</a>
+                  <ul class="depth_3">
+                    <li><a href="#">환경안전보건경영 소개</a></li>
+                    <li><a href="#">주요 프로그램</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">상생경영</a></li>
+                <li><a href="#">사회공헌</a></li>
+                <li>
+                  <a href="#">기업지배구조</a>
+                  <ul class="depth_3">
+                    <li><a href="#">기업지배구조</a></li>
+                    <li><a href="#">이사회</a></li>
+                    <li><a href="#">정관 및 기타규정</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- // depth_2 -->            
+            </li>
+            <li class="accord_head">
+              <a href="#" class="accord_tit">CAREERS</a>
+              <!-- depth_2 -->
+              <ul class="depth_2 accord_cont">
+                <li><a href="#">인재상</a></li>
+                <li><a href="#">채용안내</a></li>
+              </ul>
+              <!-- // depth_2 -->            
+            </li>
+          </ul>
+          <div class="site_map_btm">
+            <a href="#" class="btn btn_xl btn_text btn_white"><span>방문신청</span><i class="ico_arr_right ico_16 is_right"></i></a>
+            <a href="#" class="btn btn_xl btn_text btn_white"><span>전자조달시스템</span><i class="ico_arr_right ico_16 is_right"></i></a>
+          </div>
+        </nav>
+      </div>
+      <!-- //site_map -->      
+      <header>
       <h1 class="h_logo"><a href="#" title="한화에어로스페이스 메인으로 이동"></a></h1>
       <!-- gnb -->
       <nav class="gnb">
@@ -96,12 +224,19 @@ var include = {
         <div class="h_language">
           <button type="button" class="ico_global"><span class="blind">언어선택버튼</span></button>
           <div class="lang">
-            <a href="#">KOR</a>
+            <a href="#" class="is_selected">KOR</a>
             <a href="#">ENG</a>
           </div>
         </div>
         <div class="h_link"><a href="#">방문신청</a></div>
-        <div class="h_allmenu"><button type="button" class="btn_hamburger"><span class="blind">전체메뉴 보기</span><span></span><span></span><span></span></button></div>
+        <div class="h_allmenu">
+          <button type="button" class="btn_hamburger is_closed">
+            <span class="blind">전체메뉴 보기</span>
+            <span class="left"></span>
+            <span></span>
+            <span class="right"></span>
+          </button>
+        </div>
       </div>
       <!-- h_util -->
     </header>`

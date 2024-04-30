@@ -147,16 +147,6 @@
               <a href="#"><img src="../resources/images/main/partner-06.jpg" alt=""></a>
             </div>
           </div>
-          <div class="marquee marquee_reverse">
-            <div class="marquee_group">
-              <a href="#"><img src="../resources/images/main/partner-01.jpg" alt=""></a>
-              <a href="#"><img src="../resources/images/main/partner-02.jpg" alt=""></a>
-              <a href="#"><img src="../resources/images/main/partner-03.jpg" alt=""></a>
-              <a href="#"><img src="../resources/images/main/partner-04.jpg" alt=""></a>
-              <a href="#"><img src="../resources/images/main/partner-05.jpg" alt=""></a>
-              <a href="#"><img src="../resources/images/main/partner-06.jpg" alt=""></a>
-            </div>
-          </div>
         </div>
       </section>
       <!-- // section -->
@@ -169,5 +159,40 @@
     <!-- // footer -->
   </div>
   <!-- // #wrap -->
+  <script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    window.addEventListener("resize", function () {
+      ScrollTrigger.update()
+    })
+     //Main Scroll Interaction
+    gsap.registerPlugin(ScrollTrigger);
+    let ftH
+    let timer;
+    let g_footer;
+    $(window).on('resize', function(){
+      clearTimeout(timer);
+      timer = setTimeout(function(){
+        footerGsap()
+        console.log('timer'+ ftH);
+      }, 200);
+    });  
+    footerGsap();
+    function footerGsap() {
+      g_footer = gsap.to('#container', {
+        scrollTrigger: {
+          trigger: '.sec_partners',
+          start: "bottom bottom",
+          end:() => `bottom-=${ftH} bottom-=${ftH}`,
+          markers: true,
+          scrub: 1,
+        },
+        y: - ftH,
+      })
+      ftH = $('footer').innerHeight();
+      console.log(g_footer.scrollTrigger);
+      g_footer.scrollTrigger.update()
+    }
+  });
+  </script>
 </body>
 </html>
