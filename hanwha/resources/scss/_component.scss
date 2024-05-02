@@ -12,11 +12,17 @@ h2 {
    font-size: $fs-xxlg;
    font-weight: $fw-l;
    line-height: 1.25;
+   @media screen and (max-width: $breakpoint-tablet){
+    font-size:2rem;
+   }
 }
 h3 {
    font-size: $fs-xlg;
-   font-weight: $fw-t;
+   font-weight: $fw-n;
    line-height: 1.15;
+  @media screen and (max-width: $breakpoint-tablet){
+    font-size:2rem;
+  }
 }
 h4 {
    font-size: $fs-md;
@@ -47,6 +53,9 @@ caption {
       font-size: $fs-xlg;
       font-weight: $fw-n;
       line-height:1;
+      @media screen and (max-width: $breakpoint-tablet){
+        font-size: $fs-lg;
+      }
    }
    &_btn {
       font-size: $fs-xs;
@@ -482,6 +491,7 @@ caption {
     flex-direction: column;
     transform: translate3d(0, 0, 0);
     transition: transform .2s linear;
+    font-weight: $fw-b;
   }
   //Button Scroll
   &.btn_srl_top, &.btn_srl_down{

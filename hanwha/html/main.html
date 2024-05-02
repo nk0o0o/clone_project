@@ -37,7 +37,7 @@
         <div class="text_area">
           <div class="row">
             <p class="txt_white txt_body2">The innovating pioneer for a sustainable tomorrow</p>
-            <button class="btn btn_icon btn_srl_down ani_hover">
+            <button class="btn btn_icon btn_srl_down ani_hover" onclick="scrollSection('.sec_slogan')">
               <div class="ani_group">
                 <i class="ico_scrl_down ico_16"></i>
                 <i class="ico_scrl_down ico_16"></i>
@@ -47,6 +47,24 @@
           <div class="progressbar"><span></span></div>
         </div>
       </section>
+      <script>
+        function scrollSection(section){
+          let headerH = $('header').outerHeight(true);
+
+          let goal = parseInt($(section).offset().top) - parseInt($(section).css('margin-top'))  - headerH;
+          
+          if(section == '.sec_slogan'){
+            //goal = parseInt($(section).children().eq(0).offset().top) - headerH;
+            //section = '.sec_visual'
+            let $g1Top = $('.sec_visual .text_area').innerHeight() + 200;
+            goal = goal  
+          }
+
+          $('html, body').animate({
+            scrollTop: goal
+          },1000)
+        }
+      </script>
       <!-- // section -->
       <!-- section -->
       <section class="sec_slogan">
@@ -101,9 +119,10 @@
       <!-- // section -->
       <!-- section -->
       <section class="sec_product">
-        <div class="swiper swiper_product">
+        <div class="swiper swiper_product">          
+          <div class="swiper-pagination-btn btn_area"></div>
           <ul class="swiper-wrapper" cursor-class="subtle">
-            <li class="swiper-slide nuri"  ondrop="alert('gkgk')">
+            <li class="swiper-slide nuri">
               <div class="cont_area inner">
                 <h3>누리호</h3>
                 <p>누리호 사업으로 발사체 기술을 고도화하여, 미래 우주산업 생태계를 주도적으로 구축합니다.</p>
@@ -143,7 +162,7 @@
               </div>
             </li>
           </ul>
-          <div class="swiper-pagination-btn btn_area"></div>
+          <div class="swiper-pagination mo_only"></div>
         </div>
       </section>
       <!-- // section -->
@@ -263,6 +282,16 @@
               <a href="#"><img src="../resources/images/main/partner-06.jpg" alt=""></a>
             </div>
           </div>
+          <div class="marquee mo_only">
+            <div class="marquee_group">
+              <a href="#"><img src="../resources/images/main/partner-01.jpg" alt=""></a>
+              <a href="#"><img src="../resources/images/main/partner-02.jpg" alt=""></a>
+              <a href="#"><img src="../resources/images/main/partner-03.jpg" alt=""></a>
+              <a href="#"><img src="../resources/images/main/partner-04.jpg" alt=""></a>
+              <a href="#"><img src="../resources/images/main/partner-05.jpg" alt=""></a>
+              <a href="#"><img src="../resources/images/main/partner-06.jpg" alt=""></a>
+            </div>
+          </div>
         </div>
       </section>
       <!-- // section -->
@@ -281,7 +310,7 @@
     })
     //Main section product swiper
     var slideTitArr = ['누리호', 'K9', 'REDBACK']; //슬라이드 타이틀
-    const swiper = new Swiper('.swiper_product', {
+    const swiperProduct = new Swiper('.swiper_product', {
       grabCursor: true,
       effect: "fade",
       slidesPerView: 1,
@@ -296,6 +325,18 @@
         },
       },
     });
+    var swiperProductBullet = new Swiper('.swiper_product', {
+      grabCursor: true,
+      effect: "fade",
+      slidesPerView: 1,
+      speed:400,
+      loop: true,
+      pagination: {
+        el: '.swiper_product .swiper-pagination',
+        type: "bullets",
+      },
+    });
+    swiperProduct.controller.control = swiperProductBullet;
 
     //Main Scroll Interaction
     gsap.registerPlugin(ScrollTrigger);
@@ -311,6 +352,7 @@
         start: "bottom bottom",
         end:"70% 20%",
         scrub: 1,
+        markers:true
          //scroller: '#wrap',
       },
       y: -$g1Top
@@ -349,32 +391,35 @@
       ease: "none",
     })
   
-    let ftH
-    let timer;
+    let ftH = $('footer').innerHeight();
+    let timer = null;
     let g_footer;
-    $(window).on('resize', function(){
-      clearTimeout(timer);
-      timer = setTimeout(function(){
-        footerGsap()
-        console.log('timer'+ ftH);
-      }, 200);
-    });  
-    footerGsap();
-    function footerGsap() {
-      g_footer = gsap.to('#container', {
+    
+    footerGsap(ftH);
+    function footerGsap(fH) {
+      g_footer = gsap.from('footer', {
         scrollTrigger: {
-          trigger: '.sec_partners',
-          start: "bottom bottom",
-          end:() => `bottom-=${ftH} bottom-=${ftH}`,
-          markers: true,
+          trigger: '#container',
+          start:'bottom bottom',
+          end:()=>`bottom bottom-=${fH}`,
+          //markers: true,
           scrub: 1,
         },
-        y: - ftH,
+        y: -fH,
       })
-      ftH = $('footer').innerHeight();
-      console.log(g_footer.scrollTrigger);
-      g_footer.scrollTrigger.update()
     }
+
+/*     $(window).on('resize', function(){
+      clearTimeout(timer);
+      ftH = $('footer').innerHeight();
+      timer = setTimeout(function(){
+        console.log(ftH);
+        footerGsap(ftH);
+        g_footer.scrollTrigger.update()
+      }, 200);
+    });   */
+
+
     //let tween = gsap.to(".class", { x: 100 })
     //공통 트리거가 있을때
     /* let st = ScrollTrigger.create({

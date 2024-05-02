@@ -47,6 +47,9 @@ button {
          height: 56px;
          padding: $sp04;
       }
+      @media screen and (max-width: $breakpoint-tablet){
+        font-size: $fs-s;
+      }
    }
    &_lg {
       min-height: 50px;

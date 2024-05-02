@@ -254,6 +254,14 @@ var include = {
     <!-- f_top -->
     <div class="f_top">
       <div class="inner">
+        <!-- btn_srl_top -->
+        <button class="btn btn_icon btn_srl_top ani_hover">
+          <div class="ani_group">
+            <i class="ico_scrl_top ico_16"></i>
+            <i class="ico_scrl_top ico_16"></i>
+          </div>
+        </button>
+        <!-- //btn_srl_top -->
         <!-- f_menu -->
         <div class="f_menu">
           <ul class="depth_1">

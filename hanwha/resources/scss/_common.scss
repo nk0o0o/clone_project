@@ -14,6 +14,12 @@
     }
   }
 }
+.mo_only{
+  display: none !important;
+  @media screen and (max-width: $breakpoint-tablet){
+    display: block !important;
+  }
+}
 /* lenis 적용시
 html {
   bottom: 0;
@@ -81,7 +87,6 @@ header{
       border-color: transparent;
     }
     .h_logo{
-      height: 92px;
       display: flex;
       align-items: center;
       a{
@@ -110,7 +115,14 @@ header{
   @media screen and (max-width: $breakpoint-tablet){
     padding: 0 24px;
     height: 74px;
+    .h_logo{
+      height: 100%;
+    }
+    .h_link, .h_language{
+      display: none;
+    }
     &.mo_sitemap_on{
+      background-color: transparent;
       .h_logo{
         display: none;
       }
@@ -124,11 +136,20 @@ header{
           }
         }
       }
+      .btn_hamburger {
+        span{
+          background-color: $color-white;
+        }
+      }
       .h_language {
+        display: flex;
         pointer-events : none;
         .ico_global{
           width: 20px;
           height: 20px;
+          &::before {
+            background-color:$color-white;
+          }
         }
         .lang{
           transition:none;
@@ -137,8 +158,9 @@ header{
           display: flex;
           position: static;
           transform: none;
-          color: #fff;
+          background-color: transparent;
           a{
+            color: #fff;
             pointer-events: auto;
             padding: 0px 11px;
             font-size: 14px;
@@ -151,15 +173,12 @@ header{
           }
         }
       }
-      .h_link{
-        display: none;
-      }
     }
   }
 }
 .h{
   &_logo{
-    height: 92px;
+    height: 100%;
     display: flex;
     align-items: center;
     a{
@@ -172,7 +191,7 @@ header{
   &_util{
     display: flex;
     align-items: center;
-    height: 92px;
+    height: 100%;
     gap: 16px;
     & > *{
       height: 100%;
@@ -255,8 +274,13 @@ header{
     .btn_hamburger span{
       background-color:$color-white;
     }
-    .h_logo a{
-      background: url("../images/logo.svg") left center / contain no-repeat;
+    .h_util, .h_logo{
+      height: 92px;
+    }
+    .h_logo{
+      a{
+        background: url("../images/logo.svg") left center / contain no-repeat;
+      }
     }
     .h_language .ico_global::before{
       background-color:$color-white;
@@ -540,10 +564,6 @@ header{
 }
 /* FOOTER */
 footer{
-  position: fixed;
-  width: 100%;
-  left: 0;
-  bottom: 0;
   display: flex;
   flex-direction: column;
 }
@@ -551,7 +571,14 @@ footer{
   &_top{
     border-left: 0;
     border-right: 0;
+    .btn_srl_top{
+      position: absolute;
+      top: -64px;
+      right: 0;
+      z-index: 1;
+    }
     .inner{
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -611,6 +638,7 @@ footer{
     font-size: $fs-xs;
     @media screen and (max-width: $breakpoint-tablet){
       flex-direction: column;
+      color: $gray-600;
     }
   }
   &_copy{
@@ -728,7 +756,7 @@ footer{
 }
 
 /* Marquee */
-$marquee-size: 150px;
+$marquee-size: 280px;
 $marquee-num:6;
 $marquee-gap: calc( $marquee-size / calc(($marquee-num - 1))/2);
 $marquee-duration: 60s;
@@ -761,7 +789,7 @@ $marquee-scroll-end: calc(-100% - $marquee-gap);
     justify-content: space-around;
     gap: calc($marquee-size / 14);
     min-width: 100%;
-    //animation: scroll-x $marquee-duration linear infinite;
+    animation: scroll-x $marquee-duration linear infinite;
   }
   &_reverse .marquee_group {
     animation-direction: reverse;
