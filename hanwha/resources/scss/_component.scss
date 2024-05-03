@@ -17,9 +17,10 @@ h2 {
    }
 }
 h3 {
-   font-size: $fs-xlg;
-   font-weight: $fw-n;
-   line-height: 1.15;
+   font-size: 4.5rem;
+   font-weight: $fw-l;
+   line-height: 1.5;
+   letter-spacing: -1.2px;
   @media screen and (max-width: $breakpoint-tablet){
     font-size:2rem;
   }
@@ -28,6 +29,7 @@ h4 {
    font-size: $fs-md;
    font-weight: $fw-t;
    line-height: 1.41;
+   letter-spacing: -1.8px;
 }
 h5 {
    font-size: $fs-m;

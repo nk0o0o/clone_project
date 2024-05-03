@@ -2,13 +2,20 @@
 .sub_exist{
   section{
     h2{
-
+      font-size: 4.125rem;
+      text-align: center;
     }
     .parallax{
       display: flex;
       justify-content: center;
       align-items: center;
       color: $color-white;
+    }
+  }
+  .sec_intro{
+    .slogan{
+      @include flexCenter();
+      height: 80.2vw;
     }
   }
 }
@@ -102,17 +109,51 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 70vh;
+      height: 66vh;
       color: $color-white;
     }
-  }
-  h3{
-    font-size: 4.5rem;
+    @media screen and (max-width: $breakpoint-tablet){
+      .parallax{
+        height: 60vh;
+      }
+      h2{
+        padding: 0 24px;
+        text-align: center;
+      }
+    }
   }
   h4{
     font-size: 4.25rem;
     line-height: 1;
-    letter-spacing:-0.015em;
+    @media screen and (max-width: $breakpoint-tablet){
+      font-size: 2.25rem;
+    }
+  }
+  .sec_slogan{
+    margin: 100px 0 0 0;
+    padding-bottom: 72px;
+    h3{
+      padding-right: 64px;
+      font-size: 2.625rem;
+    }
+    p{
+      margin-top: 48px;
+      width: 55%;
+      color: $gray-300;
+    }
+    @media screen and (max-width: $breakpoint-tablet){
+      margin: 60px 0 0 0;
+      padding-bottom: 48px;
+      h3{
+        padding-right: 0;
+        font-size: $fs-l;
+      }
+      p{
+        width: 100%;
+        margin-top: 24px;
+        font-size: $fs-s;
+      }
+    }
   }
 }
 .sec_sticky{
@@ -122,39 +163,92 @@
     justify-content: space-between;
   }
   .stick_box{
-    flex-basis: 40%;
+    flex:2;
     position: sticky;
+    min-width: 280px;
     top: 0;
     padding-top: 150px;
     height: 100vh;  
-    border: 1px solid;
   }
   ul{
-    flex-basis: 60%;
+    flex:3;
+    max-width: 60%;
     display: flex;
     flex-direction: column;
-    padding: 230px 8% 200px;
+    padding: 230px 8% 0;
+  }
+  li{
+    h4{
+      margin-top: 52px;
+      & +.tit{
+        margin-top: 46px;
+      }
+    }
+    .tit{
+      margin-top: 32px;
+      font-size:$fs-md;
+      line-height: 1.4;
+    }
+    .desc{
+      margin-top: 18px;
+      line-height: 1.4;
+      color: $gray-500;
+    }
+    & + li{
+      margin-top: 152px;
+    }
+    img{
+      display: block;
+      max-width: 100%;
+    }
+  }
+  @media screen and (max-width: $breakpoint-desktop){
+    h3{
+      font-size: 3.4rem;
+    }
+  }
+  @media screen and (max-width: $breakpoint-tablet){
+    h3{
+      font-size: 2.2rem;
+    }
+    .inner{
+      flex-direction: column;
+    }
+    .stick_box, ul{
+      flex-basis: auto;
+      height: auto;
+    }
+    .stick_box{
+      position: static;
+      padding-top: 60px;
+      min-width:auto;
+    }
+    ul{
+      padding:60px 0 72px 14%;
+      max-width: none;
+    }
     li{
       h4{
-        margin-top: 52px;
-        & +.tit{
-          margin-top: 46px;
+        margin-top: 32px;
+        &+ .tit{
+          margin-top: 32px;
         }
       }
       .tit{
-        margin-top: 32px;
-        font-size:1.75rem;
-        line-height: 1.4;
+        margin-top: 24px;
+        font-size: $fs-m;
       }
       .desc{
-        margin-top: 18px;
-      }
+        margin-top: 12px;
+        font-size: $fs-s;
+      } 
       & + li{
-        margin-top: 156px;
+        margin-top: 48px;
       }
-      img{
-        display: block;
-        max-width: 100%;
+    }
+    &:nth-last-of-type(1){
+      ul{
+        padding-bottom: 0;
       }
     }
   }

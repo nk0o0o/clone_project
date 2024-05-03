@@ -251,17 +251,19 @@ var include = {
   },
   footer: function () {
     document.write(`<footer>
+    <!-- btn_srl_top -->
+    <div class="inner">
+      <button class="btn btn_icon btn_srl_top ani_hover">
+        <div class="ani_group">
+          <i class="ico_scrl_top ico_16"></i>
+          <i class="ico_scrl_top ico_16"></i>
+        </div>
+      </button>
+    </div>
+    <!-- //btn_srl_top -->
     <!-- f_top -->
     <div class="f_top">
       <div class="inner">
-        <!-- btn_srl_top -->
-        <button class="btn btn_icon btn_srl_top ani_hover">
-          <div class="ani_group">
-            <i class="ico_scrl_top ico_16"></i>
-            <i class="ico_scrl_top ico_16"></i>
-          </div>
-        </button>
-        <!-- //btn_srl_top -->
         <!-- f_menu -->
         <div class="f_menu">
           <ul class="depth_1">
@@ -331,13 +333,13 @@ var include = {
             <div class="select_box_value"><span>관련 기관 전체보기</span></div>
             <div class="select_box_list">
               <ul>
-                <li><span>대한민국 국방부</span></li>
-                <li><span>합동참모본부</span></li>
-                <li><span>병무청</span></li>
-                <li><span>국방과학연구소</span></li>
-                <li><span>국방기술품질원</span></li>
-                <li><span>한국방위산업진흥회</span></li>
-                <li><span>한국국방연구원</span></li>
+              <li><a href="#"><span>대한민국 국방부</span></a></li>
+              <li><a href="#"><span>합동참모본부</span></a></li>
+              <li><a href="#"><span>병무청</span></a></li>
+              <li><a href="#"><span>국방과학연구소</span></a></li>
+              <li><a href="#"><span>국방기술품질원</span></a></li>
+              <li><a href="#"><span>한국방위산업진흥회</span></a></li>
+              <li><a href="#"><span>한국국방연구원</span></a></li>
               </ul>
             </div>
           </div>
@@ -349,23 +351,23 @@ var include = {
               <ul>
                 <li><span>한화그룹</span></li>
                 <li class="list-group_opt">
-                  <div class="list_tit">우주항공·오션·방산</div>
+                  <div class="list_tit"><span>우주항공·오션·방산</span></div>
                   <ul>
-                    <li><span>한화오션</span></li>
-                    <li><span>한화시스템</span></li>
-                    <li><span>한화비젼</span></li>
-                    <li><span>한화정밀기계</span></li>
+                  <li><a href="#"><span>한화오션</span></a></li>
+                  <li><a href="#"><span>한화시스템</span></a></li>
+                  <li><a href="#"><span>한화비젼</span></a></li>
+                  <li><a href="#"><span>한화정밀기계</span></a></li>
                   </ul>
                 </li>
                 <li class="list-group_opt">
-                  <div class="list_tit">에너지·소재</div>
+                  <div class="list_tit"><span>에너지·소재</span></div>
                   <ul>
-                    <li><span>(주)한화</span></li>
-                    <li><span>한화솔루션</span></li>
-                    <li><span>한화에너지</span></li>
-                    <li><span>한화임팩트</span></li>
-                    <li><span>한화파워시스템</span></li>
-                    <li><span>한화엔진</span></li>
+                  <li><a href="#"><span>(주)한화</span></a></li>
+                  <li><a href="#"><span>한화솔루션</span></a></li>
+                  <li><a href="#"><span>한화에너지</span></a></li>
+                  <li><a href="#"><span>한화임팩트</span></a></li>
+                  <li><a href="#"><span>한화파워시스템</span></a></li>
+                  <li><a href="#"><span>한화엔진</span></a></li>
                   </ul>
                 </li>
               </ul>

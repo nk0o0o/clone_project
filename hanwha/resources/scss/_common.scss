@@ -59,7 +59,7 @@ section .inner, footer .inner{
 }
 main, #container{
   position: relative;
-  z-index: 1;
+  z-index: 2;
   background-color: $color-white;
 }
 /* HEADER */
@@ -564,21 +564,45 @@ header{
 }
 /* FOOTER */
 footer{
+  position: relative;
   display: flex;
   flex-direction: column;
+  padding-top: 160px;
+  &::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    padding-top: 160px;
+    background-color: $color-white;
+    border-bottom: 1px solid $color-border;
+    z-index: 1;
+  }
+  .btn_srl_top{
+    z-index: 2;
+    position: absolute;
+    top: -64px;
+    right: 0;
+  }
+  .inner{
+    //z-index: 1;
+    position: relative;
+  }
+  @media screen and (max-width: $breakpoint-tablet){
+    .btn_srl_top{
+      top: -56px;
+    }
+  }
 }
 .f{
   &_top{
+    z-index: 1;
+    position: relative;
+    background-color: transparent;
     border-left: 0;
     border-right: 0;
-    .btn_srl_top{
-      position: absolute;
-      top: -64px;
-      right: 0;
-      z-index: 1;
-    }
     .inner{
-      position: relative;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -590,16 +614,19 @@ footer{
     }
   }
   &_btm{
+    z-index: 0;
     padding: 24px 0;
     border-top: 1px solid $color-border;
     .inner{
       display: flex;
       align-items: center;
-      @media screen and (max-width: $breakpoint-tablet){
+    }
+    @media screen and (max-width: $breakpoint-tablet){
+      .inner{
         flex-direction: column;
         align-items: flex-start;
-        border-top: 0;
       }
+      border-top: 0;
     }
   }
   &_menu{

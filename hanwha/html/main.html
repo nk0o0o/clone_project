@@ -47,24 +47,6 @@
           <div class="progressbar"><span></span></div>
         </div>
       </section>
-      <script>
-        function scrollSection(section){
-          let headerH = $('header').outerHeight(true);
-
-          let goal = parseInt($(section).offset().top) - parseInt($(section).css('margin-top'))  - headerH;
-          
-          if(section == '.sec_slogan'){
-            //goal = parseInt($(section).children().eq(0).offset().top) - headerH;
-            //section = '.sec_visual'
-            let $g1Top = $('.sec_visual .text_area').innerHeight() + 200;
-            goal = goal  
-          }
-
-          $('html, body').animate({
-            scrollTop: goal
-          },1000)
-        }
-      </script>
       <!-- // section -->
       <!-- section -->
       <section class="sec_slogan">
@@ -352,7 +334,7 @@
         start: "bottom bottom",
         end:"70% 20%",
         scrub: 1,
-        markers:true
+        //markers:true
          //scroller: '#wrap',
       },
       y: -$g1Top
@@ -391,23 +373,7 @@
       ease: "none",
     })
   
-    let ftH = $('footer').innerHeight();
-    let timer = null;
-    let g_footer;
     
-    footerGsap(ftH);
-    function footerGsap(fH) {
-      g_footer = gsap.from('footer', {
-        scrollTrigger: {
-          trigger: '#container',
-          start:'bottom bottom',
-          end:()=>`bottom bottom-=${fH}`,
-          //markers: true,
-          scrub: 1,
-        },
-        y: -fH,
-      })
-    }
 
 /*     $(window).on('resize', function(){
       clearTimeout(timer);
