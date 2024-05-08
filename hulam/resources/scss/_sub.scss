@@ -1,0 +1,255 @@
+// SUB : Why We Exist
+.sub_exist{
+  section{
+    h2{
+      font-size: 4.125rem;
+      text-align: center;
+    }
+    .parallax{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-white;
+    }
+  }
+  .sec_intro{
+    .slogan{
+      @include flexCenter();
+      height: 80.2vw;
+    }
+  }
+}
+
+.sub_menu{
+  display: none;
+  .inner{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.article_list{
+  display: grid;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 250px 140px;
+  padding: 0 100px; 
+  li{
+    p{
+      font-size: $fs-lg;
+      margin-top: 40px;
+      line-height: 1.6;
+    }
+    &:nth-child(1){
+      margin-top: -250px;
+    }
+    &:nth-child(2){
+      margin-bottom: -250px;
+    }
+  }
+  &.reverse{
+    li{
+      &:nth-child(1){
+        margin-top: auto;
+        margin-bottom: -250px;
+      }
+      &:nth-child(2){
+        margin-bottom: auto;
+        margin-top: -250px;
+      }
+      &:nth-child(3){
+        grid-column: 2 / 3;
+      }
+    }
+  }
+}
+.sec_purpose{
+  .parallax{
+    background: url('../images/exsist/kv2.jpg') center/cover no-repeat;
+  }
+}
+.sec_devotion{
+  .parallax{
+    background: url('../images/exsist/kv2.jpg') center/cover no-repeat;
+  }
+  .inner{
+    padding: 250px 0;
+  }
+}
+.sec_inval{
+  .parallax{
+    background: url('../images/exsist/world-kv.jpg') center/cover no-repeat;
+  }
+}
+.sec_tomorrow{
+  .parallax{
+    background: url('../images/exsist/tomorrow-kv.jpg') center/cover no-repeat;
+  }
+}
+.sec_closing{
+  /*  .inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  } */
+  .parallax{
+    height: 600px;
+    background-image: none;
+    .inner{
+      color: $gray-600;
+    }
+  }
+}
+// SUB : Sustainable technologies
+.sub_sustain{
+  .sec_intro{
+    .parallax{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 66vh;
+      color: $color-white;
+    }
+    @media screen and (max-width: $breakpoint-tablet){
+      .parallax{
+        height: 60vh;
+      }
+      h2{
+        padding: 0 24px;
+        text-align: center;
+      }
+    }
+  }
+  h4{
+    font-size: 4.25rem;
+    line-height: 1;
+    @media screen and (max-width: $breakpoint-tablet){
+      font-size: 2.25rem;
+    }
+  }
+  .sec_slogan{
+    margin: 100px 0 0 0;
+    padding-bottom: 72px;
+    h3{
+      padding-right: 64px;
+      font-size: 2.625rem;
+    }
+    p{
+      margin-top: 48px;
+      width: 55%;
+      color: $gray-300;
+    }
+    @media screen and (max-width: $breakpoint-tablet){
+      margin: 60px 0 0 0;
+      padding-bottom: 48px;
+      h3{
+        padding-right: 0;
+        font-size: $fs-l;
+      }
+      p{
+        width: 100%;
+        margin-top: 24px;
+        font-size: $fs-s;
+      }
+    }
+  }
+}
+.sec_sticky{
+  border-top: 1px solid $color-border;
+  .inner{
+    display: flex;
+    justify-content: space-between;
+  }
+  .stick_box{
+    flex:2;
+    position: sticky;
+    min-width: 280px;
+    top: 0;
+    padding-top: 150px;
+    height: 100vh;  
+  }
+  ul{
+    flex:3;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 230px 8% 0;
+  }
+  li{
+    h4{
+      margin-top: 52px;
+      & +.tit{
+        margin-top: 46px;
+      }
+    }
+    .tit{
+      margin-top: 32px;
+      font-size:$fs-md;
+      line-height: 1.4;
+    }
+    .desc{
+      margin-top: 18px;
+      line-height: 1.4;
+      color: $gray-500;
+    }
+    & + li{
+      margin-top: 152px;
+    }
+    img{
+      display: block;
+      max-width: 100%;
+    }
+  }
+  @media screen and (max-width: $breakpoint-desktop){
+    h3{
+      font-size: 3.4rem;
+    }
+  }
+  @media screen and (max-width: $breakpoint-tablet){
+    h3{
+      font-size: 2.2rem;
+    }
+    .inner{
+      flex-direction: column;
+    }
+    .stick_box, ul{
+      flex-basis: auto;
+      height: auto;
+    }
+    .stick_box{
+      position: static;
+      padding-top: 60px;
+      min-width:auto;
+    }
+    ul{
+      padding:60px 0 72px 14%;
+      max-width: none;
+    }
+    li{
+      h4{
+        margin-top: 32px;
+        &+ .tit{
+          margin-top: 32px;
+        }
+      }
+      .tit{
+        margin-top: 24px;
+        font-size: $fs-m;
+      }
+      .desc{
+        margin-top: 12px;
+        font-size: $fs-s;
+      } 
+      & + li{
+        margin-top: 48px;
+      }
+    }
+    &:nth-last-of-type(1){
+      ul{
+        padding-bottom: 0;
+      }
+    }
+  }
+}

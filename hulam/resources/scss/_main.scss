@@ -1,0 +1,94 @@
+.main_type{
+  section{
+    padding: 100px 0;
+  }
+  .btn_group{
+    width: 100%;
+    justify-content:center;
+  }
+}
+//Sec_visual
+.sec_visual{
+  border: 1px solid red;
+  position: relative;
+  h1{
+    margin-bottom: 24px;
+  }
+  .btn_group{
+    margin-top: 36px;
+  }
+  .scroll_down{
+    position: absolute;
+    right: 90px;
+    bottom: -11px;
+    font-size: 16px;
+    font-weight: 500;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    z-index: 99;
+    span { 
+      position: relative;
+      font-family: "Poppins";
+      font-weight: 600; 
+    } 
+    &::after { 
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 92px;
+      right: -58px;
+      top: -47px;
+      margin-top: 12px;
+      background: #1a1818;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    } 
+
+  }
+}
+.visual_area{
+  z-index: -1;
+  border: 1px solid;
+  position: absolute;
+  width: 100%;
+  top:120px;
+  padding-bottom: 590px;
+  .img_floating{
+    position: absolute;
+    bottom: 0;
+    right: 120px;
+    animation: floatingImg 1.5s infinite alternate;
+
+   /*  animation-fill-mode: forwards;
+    animation-name: runRight, runLeft;
+    animation-delay: 0s, 3s;
+    animation-duration: 3s, 12s;
+    animation-timing-function: ease-in, ease-in-out;
+     */
+    &.sns{
+      bottom: -100px;
+      right: 240px;
+    }
+  }
+}
+@keyframes fadeUp {
+  0%{
+    transform: translateY(20%);
+  }
+  100%{
+    transform: translateY(0);
+  }  
+}
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }  
+}
+@keyframes floatingImg {
+  100%{
+    transform: translateY(5%);
+  }
+}
