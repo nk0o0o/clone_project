@@ -823,3 +823,11 @@ $marquee-scroll-end: calc(-100% - $marquee-gap);
     animation-delay: -3s;
   }
 }
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - calc($marquee-size / 14)));
+  }
+}

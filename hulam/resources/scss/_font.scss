@@ -33,6 +33,7 @@
     url('../fonts/NotoSansKR/NotoSansKR-Medium.woff2') format('woff2'),
     url('../fonts/NotoSansKR/NotoSansKR-Medium.otf') format('opentype'),
     url('../fonts/NotoSansKR/NotoSansKR-Medium.svg#NotoSansKR') format('svg');
+    unicode-range: U+AC00-D7A3;
 }
 @font-face {
 	font-family: 'Noto Sans KR';
@@ -44,6 +45,7 @@
     url('../fonts/NotoSansKR/NotoSansKR-Regular.woff2') format('woff2'),
     url('../fonts/NotoSansKR/NotoSansKR-Regular.otf') format('opentype'),
     url('../fonts/NotoSansKR/NotoSansKR-Regular.svg#NotoSansKR') format('svg');
+    unicode-range: U+AC00-D7A3;
 }
 @font-face {
 	font-family: 'Noto Sans KR';
@@ -55,6 +57,7 @@
     url('../fonts/NotoSansKR/NotoSansKR-Light.woff2') format('woff2'),
     url('../fonts/NotoSansKR/NotoSansKR-Light.otf') format('opentype'),
     url('../fonts/NotoSansKR/NotoSansKR-Light.svg#NotoSansKR') format('svg');
+    unicode-range: U+AC00-D7A3;
 }
 @font-face {
 	font-family: 'Noto Sans KR';
@@ -66,6 +69,7 @@
     url('../fonts/NotoSansKR/NotoSansKR-Thin.woff2') format('woff2'),
     url('../fonts/NotoSansKR/NotoSansKR-Thin.otf') format('opentype'),
     url('../fonts/NotoSansKR/NotoSansKR-Thin.svg#NotoSansKR') format('svg');
+    unicode-range: U+AC00-D7A3;
 }
 
 
@@ -80,7 +84,7 @@
     url('../fonts/Poppins/Poppins-Black.woff2') format('woff2'), /* Super Modern Browsers */
     url('../fonts/Poppins/Poppins-Black.otf') format('opentype'), /* Safari, Android, iOS */
     url('../fonts/Poppins/Poppins-Black.svg#Poppins') format('svg'); /* Legacy iOS */
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-005A;
 }
 @font-face {
 	font-family: 'Poppins';
@@ -92,7 +96,7 @@
     url('../fonts/Poppins/Poppins-Bold.woff2') format('woff2'),
     url('../fonts/Poppins/Poppins-Bold.otf') format('opentype'),
     url('../fonts/Poppins/Poppins-Bold.svg#Poppins') format('svg'); 
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-005A;
 }
 @font-face {
 	font-family: 'Poppins';
@@ -104,7 +108,7 @@
     url('../fonts/Poppins/Poppins-SemiBold.woff2') format('woff2'),
     url('../fonts/Poppins/Poppins-SemiBold.otf') format('opentype'),
     url('../fonts/Poppins/Poppins-SemiBold.svg#Poppins') format('svg'); 
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-005A;
 }
 @font-face {
 	font-family: 'Poppins';
@@ -116,7 +120,7 @@
     url('../fonts/Poppins/Poppins-Medium.woff2') format('woff2'),
     url('../fonts/Poppins/Poppins-Medium.otf') format('opentype'),
     url('../fonts/Poppins/Poppins-Medium.svg#Poppins') format('svg'); 
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-005A;
 }
 @font-face {
 	font-family: 'Poppins';
@@ -128,7 +132,7 @@
     url('../fonts/Poppins/Poppins-Regular.woff2') format('woff2'), 
     url('../fonts/Poppins/Poppins-Regular.otf') format('opentype'), 
     url('../fonts/Poppins/Poppins-Regular.svg#Poppins') format('svg'); 
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-005A;
 }
 @font-face {
 	font-family: 'Poppins';
@@ -140,5 +144,5 @@
     url('../fonts/Poppins/Poppins-Light.woff2') format('woff2'),
     url('../fonts/Poppins/Poppins-Light.otf') format('opentype'),
     url('../fonts/Poppins/Poppins-Light.svg#Poppins') format('svg'); 
-  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-005A;
 }

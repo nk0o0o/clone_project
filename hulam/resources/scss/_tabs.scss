@@ -4,12 +4,12 @@
    border-radius: 4px;
    background-color: $color-box;
    &_item {
-      display: none;
+      display: none !important;
       font-size: $fs-xs;
       line-height: 24px;
       letter-spacing: -0.49px;
-      &:first-child {
-         display: block;
+      &.current{
+        display: block !important;
       }
    }
 }
@@ -44,14 +44,14 @@
             & > button {
                display: block;
                position: relative;
-               height: 38px;
+               height: 44px;
                padding: 0 $sp05;
                text-align: center;
                white-space: nowrap;               
                cursor: pointer;
                @include trans($prop: all, $duration: 0.3s, $type: ease-out, $delay: 0s);
                span {
-                  font-size: $fs-xs;
+                  font-size: $fs-s;
                   color: $gray-300;
                   line-height: 36px;
                }
@@ -107,20 +107,30 @@
          left: 0;
          bottom: 0px;
          width: 100%;
-         height: 2px;
-         background-color: $gray-100;
+         height: 1px;
+         background-color: $color-border;
+         z-index: 1;
       }
       & + .tab_cont {
-         margin-top: -2px;
+         margin-top: -1px;
+      }
+      .tab_list{
+        margin-right: 60px;
+      }
+      .tab_list > button{
+        padding: 0px 0px 17px;
+        span{
+          font-size: $fs-m;
+        }
       }
       .tab_bar {
          position: absolute;
          bottom: 0px;
          left: 0;
          width: 100%;
-         height: 2px;
+         height: 1px;
          background: $color-primary;
-         z-index: 1;
+         z-index: 2;
          @include trans($prop: all, $duration: 0.3s, $type: cubic-bezier(0.25, 1, 0.5, 1), $delay: 0s);
       }
    }

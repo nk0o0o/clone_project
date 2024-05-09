@@ -114,7 +114,7 @@ caption {
       background-color: $color-primary !important;
    }
    &_secondary {
-      background-color: $gray-600 !important;
+      background-color: transparentize($color-primary, 0.9) !important;
    }
    &_success,
    &_green {
@@ -178,7 +178,7 @@ caption {
       border: 1px solid $color-primary !important;
    }
    &_secondary {
-      border: 1px solid $gray-600 !important;
+    border: 1px solid $color-primary !important;
    }
    &_success,
    &_green {
@@ -235,6 +235,9 @@ caption {
 }
 //Text Color
 .txt {
+    &_primary{
+      color: $color-primary !important;
+    }
    &_success,
    &_green {
       color: $color-green !important;

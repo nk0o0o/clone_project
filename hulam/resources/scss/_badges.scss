@@ -25,7 +25,7 @@
          color: $color-primary;
       }
       &_secondary {
-         color: $gray-600;
+         color: $color-primary;
       }
       &_success,
       &_green {
@@ -80,6 +80,36 @@
    &_round {
       @include badge;
       border-radius: 100px;
+      &.line {
+        &_primary {
+           color: $color-primary;
+        }
+        &_secondary {
+          color: $color-primary;
+          border-color: $color-primary;
+        }
+        &_success,
+        &_green {
+           color: $color-green;
+        }
+        &_red,
+        &_danger {
+           color: $color-red;
+        }
+        &_info {
+           color: $color-blue;
+        }
+        &_light {
+           color: $gray-50;
+        }
+        &_gray {
+           color: $gray-300;
+        }
+        &_dark,
+        &_black {
+           color: $gray-600;
+        }
+     }
    }
    &_dot {
       width: 10px;

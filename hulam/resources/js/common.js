@@ -1,6 +1,6 @@
 $(document).ready(function () { 
   let headerH = $('header').outerHeight(true);
-  
+  if($("[data-numcounter]")){numberCount("[data-numcounter]")};
   if ($(".line_tab") || $(".vertical_tab")) { LineTabMenuInit() }
   if ($(".btn_toggle").find("input[disabled='true']")) { toggleBtnDisabled() }
   if($('.file_uploader')){ fileUploader() }
@@ -15,10 +15,10 @@ $(document).ready(function () {
     if($(window).innerWidth()<= 768){
       ftH = $('.f_btm').innerHeight();
     }
-    footerGsap(ftH, ftPt)
   };
   if ($('footer .btn_srl_top').length > 0) { scrollTopBtn() }
- 
+  if( $('.marquee').length > 0){ marqueeClone() }
+
    /****** Tab Menu ******/
    $('.tab_menu .tab_list').click(function () { tabMenu(this) });
 
@@ -27,8 +27,8 @@ $(document).ready(function () {
       var activeTab = $(el).attr('data-tab');
       $(el).siblings('li').removeClass('current');
       $(el).addClass('current');
-      tab.next('.tab_cont').find('.tab_cont_item').stop().hide();
-      tab.next('.tab_cont').find('#' + activeTab).stop().show();
+      tab.next('.tab_cont').find('.tab_cont_item').stop().hide().removeClass('current');
+      tab.next('.tab_cont').find('#' + activeTab).stop().show().addClass('current');
 
       if (tab.hasClass("line_tab") || tab.hasClass("vertical_tab")) {
          //클릭시 라인이동
@@ -61,20 +61,19 @@ $(document).ready(function () {
       var verticalLineTab = $(".vertical_tab");
       if (tabM.hasClass("line_tab") || tabM.hasClass("vertical_tab")) {
          tabM.each(function () {
-            if ($(this).find('.tab_bar').length < 1) {
-               tabM.append("<div class='tab_bar'></div>");
+            if (tabM.find('.tab_bar').length < 1) {
+               tabM.find('ul').append("<div class='tab_bar'></div>");
             };
          });
       }
       lineTab.each(function () {
-         console.log($(this))
-         $(this).find('.tab_bar').css({
+         tabM.find('.tab_bar').css({
             "width": $(this).find(".current").outerWidth(),
             "left": $(this).find(".current").position().left + parseInt($(this).find(".current").css("margin-left"))
          });
       })
       verticalLineTab.each(function () {
-         $(this).find(".tab_bar").css({
+         tabM.find(".tab_bar").css({
             "height": $(this).find(".current").outerHeight(),
             "top": $(this).find(".current").position().top + parseInt($(this).find(".current").css("margin-top"))
          });
@@ -353,7 +352,7 @@ $(document).ready(function () {
 
   /**** Window Scroll ****/
   $(window).scroll(function(){    
-    console.log(scrollTop);
+    //console.log(scrollTop);
 
   })
 }) //ready
@@ -447,4 +446,54 @@ function scrollTopBtn() {
       scrollTop: 0
     },1000)
   })
+}
+//Number Counter Animation
+function numberCount(el){
+  const speed = 200;
+  $(el).each(function(){
+    const animate = () => {      
+      const regex = /[^0-9]/g; //숫자추출 정규식
+      const value = + $(this).data('numcounter').replace(regex, "");
+      const data = + $(this).text().replace(regex, "");
+      const time = value / speed;
+      if(data < value) {
+        $(this).text(formatNumber(Math.ceil(data + time)))
+        setTimeout(animate, 1);
+      }else{
+        $(this).text(formatNumber(value))
+      }
+    }
+    animate();
+  });
+}
+//천단위 콤마
+function formatNumber(num){
+  let number = String(num)
+  if (number.length >= 4){
+    var reversed = number.split('').reverse();
+    var threes = -1;
+    var numberArray = [];
+    for (i of reversed){
+      threes += 1
+      if (threes == 3) {
+        numberArray.push(',');
+        threes = 0;
+      }
+      numberArray.push(i);
+    }
+    return numberArray.reverse().join('');
+  } else {
+    return number;
+  }
+}
+
+function marqueeClone(){
+  let el = $('.marquee');
+  el.each(function () {
+    let elChild = $(this).find('.marquee_group').html();
+    let cloneGroup = $(elChild).clone();
+    let clonedDiv =  $('<div aria-hidden="true" class="marquee_group"></div>');
+    clonedDiv.append(cloneGroup)
+    $(this).append(clonedDiv);
+  });
 }

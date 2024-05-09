@@ -19,10 +19,10 @@
 
 // font
 @mixin ko {
-   font-family: $font-noto;
+   font-family: $font-noto, $font-popins, sans-serif;
 }
 @mixin en {
-   font-family: $font-noto;
+   font-family: $font-noto, sans-serif;
 }
 @mixin flexCenter {
   display: -webkit-box;
