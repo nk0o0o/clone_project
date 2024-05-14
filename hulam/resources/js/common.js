@@ -321,33 +321,12 @@ $(document).ready(function () {
     }
   }
 
-  //Site Map Accordion
-  const siteHead= $(".site_map .accord_head");
-  if( $(window).outerWidth() > 768){
-    $(".site_map .accord_head").off('click');
-  }
-
-
-
  /**** Window Resize  ****/ 
   $(window).on('resize', function(){
     headerH = $('header').outerHeight(true);
     clearTimeout(timer);
     //resize Modalposition
     timer = setTimeout(modalPosition, 50);
-
-    //resize SiteMapAccordion
-    timer = setTimeout(siteAccord, 200);
-    function siteAccord(){
-      let wW =   $(window).outerWidth();
-      $(".site_map .accord_cont").css('display', 'none')
-      if(wW > 768){
-        siteHead.off('click');
-        siteHead.removeClass('on')
-      }else{
-        siteHead.on('click', function(){accordionUI(this)});
-      }
-    }
   })//resize
 
   /**** Window Scroll ****/
@@ -403,6 +382,10 @@ function gnbEvent(){
   }).on('mouseleave', function(e){
     $(this).removeClass('open');
   });
+  $(window).resize(function () { 
+    let wW = $(window).width();
+    if(wW > 768){$('.gnb').removeClass('mo_active');}
+  });
 }
 
 //header Scroll Interaction
@@ -412,14 +395,13 @@ function headerScroll() {
       $(this).removeClass('is_open')
       $(this).addClass('is_closed')
       $('body').removeClass('no_scroll')
-      /* $('.site_map').delay(300).fadeOut(300);
+      /* 
       $('.gnb').removeClass('hidden');
       $('header').removeClass('mo_sitemap_on'); */
     }else{
       $(this).removeClass('is_closed')
       $(this).addClass('is_open')
       $('body').addClass('no_scroll') 
-     /*  $('.site_map').fadeIn(300); */
      /*  $('.gnb').addClass('hidden'); */
      /*  $('header').addClass('mo_sitemap_on'); */
     }

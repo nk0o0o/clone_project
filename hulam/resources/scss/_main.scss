@@ -36,6 +36,9 @@
   }
   h1{
     margin-bottom: 24px;
+    &.fadeIn{
+      animation-delay: 0.3s;
+    }
     em{
       position: relative;
       &::before{
@@ -265,6 +268,42 @@
       color: $gray-200;
     }
   }
+  ul{
+    position: relative;
+    border: 1px solid $color-border;
+    border-radius: 24px;
+    width: 62%;
+    height: 740px;
+    margin: 80px auto 0;
+    background: url('../images/main/img_contract.png') top center/105% no-repeat;
+  }
+  li{
+    position: absolute;
+    &.sub_1{
+      width: 365px;
+      height: 243px;
+      top: -140px;
+      right: -120px;
+    }
+    &.sub_2{
+      width: 316px;
+      height: 203px;
+      top: 50px;
+      left: -210px;
+    }
+    &.sub_3{
+      width: 316px;
+      height: 252px;
+      top: 270px;
+      right: -230px;
+    }
+    &.sub_4{
+      width: 303px;
+      height: 229px;
+      top: 460px;
+      left: -90px;
+    }
+  }
 }
 //Why Section
 .sec_why{
@@ -272,6 +311,7 @@
     li{
       min-width: auto;
       padding: 0;
+      text-align: center;
       img{
         height: 426px;
         width: auto;

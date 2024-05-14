@@ -56,11 +56,11 @@ var include = {
               </ul>
             </li>
           </ul>
+          <div class="h_util">
+            <a href="#" class="btn btn_sm"><span>로그인</span></a>
+            <a href="#" class="btn btn_sm btn_secondary ani_hover"><span>무료로 시작하기</span></a>
+          </div>
         </nav>
-        <div class="h_util">
-          <a href="#" class="btn btn_sm"><span>로그인</span></a>
-          <a href="#" class="btn btn_sm btn_primary ani_hover"><span>무료로 시작하기</span></a>
-        </div>
         <div class="btn_hamburger">
           <span class="left"></span>
           <span></span>
