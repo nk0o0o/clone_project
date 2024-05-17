@@ -3,7 +3,7 @@
 //max-width 기준
 $breakpoint-mobile: 320px;
 $breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;
+$breakpoint-desktop: 1280px;
 
 /*****  FONT *****/
 // Font Family
@@ -68,7 +68,7 @@ $color-box-hover:#e2e5ea;
 
 // 주요 색상
 $color-primary: $color-blue;
-$color-secondary: $color-teal;
+$color-secondary: rgba(64, 125, 241, 0.1);
 
 /***** SPACING *****/
 $sp01: 2px;

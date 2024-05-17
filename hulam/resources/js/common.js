@@ -7,17 +7,11 @@ $(document).ready(function () {
   if($('.input_writing_group textarea')){ initCountString() }
   if ($('.progress_bar')) { progressBarUI() }
   if ($('.pagination').length > 0) { paginationUI() }
-  if($('header').length >= 1){headerScroll(); gnbEvent();}
-  if ($('footer').length > 0) { 
-    let g_footer = undefined;
-    let ftH = $('.f_top').innerHeight() + $('.f_btm').innerHeight();
-    let ftPt = $('footer').css('padding-top');
-    if($(window).innerWidth()<= 768){
-      ftH = $('.f_btm').innerHeight();
-    }
-  };
+  if($('header').length >= 1){ gnbEvent(); }
   if ($('footer .btn_srl_top').length > 0) { scrollTopBtn() }
   if( $('.marquee').length > 0){ marqueeClone() }
+  if( $('.main_type').length > 0){ mainMoSwiper(); mainHdScroll(); }  
+  if( $('.sec_visual').length > 0){ removeVisBtn(); }  
 
    /****** Tab Menu ******/
    $('.tab_menu .tab_list').click(function () { tabMenu(this) });
@@ -377,49 +371,80 @@ function dataTableSelect(dtable) {
 
 //GNB hover
 function gnbEvent(){
-  $('.depth_1 ').on('mouseover', function(e){
-    $(this).addClass('open');    
-  }).on('mouseleave', function(e){
-    $(this).removeClass('open');
-  });
+  let gnbBreak = 1280;
+  let wW = $(window).width();
+  let timer;
+  //GNB Responsive Resizing
   $(window).resize(function () { 
-    let wW = $(window).width();
-    if(wW > 768){$('.gnb').removeClass('mo_active');}
+    clearTimeout(timer);
+    let afterwW = $(window).width();
+    if(afterwW - gnbBreak > 0){
+      $('nav').removeClass('mo_active');
+      $('.btn_hamburger').removeClass('is_open');
+      $('.depth_1').removeClass('open')
+      timer = setTimeout(gnbHover, 100);
+    }else{
+      timer = setTimeout(gnbClick, 100);
+    }
   });
-}
-
-//header Scroll Interaction
-function headerScroll() {  
+  if(wW - gnbBreak > 0){
+    gnbHover();
+  }else{
+    gnbClick();
+  }
+  //GNB PC Hover event
+  function gnbHover(){
+    $('.depth_1').off('click')
+    $('.depth_1').on('mouseover', function(e){
+      $(this).addClass('open');    
+    }).on('mouseleave', function(e){
+      $(this).removeClass('open');
+    });
+  }
+  //GNB MO Click event
+  function gnbClick(){
+    $('.depth_1').off('mouseover mouseleave')
+    $('.depth_1').click(function(e){
+      if($(this).find('.is_depth').length <=0){return false;}
+      $('.depth_1').not(this).removeClass('open');
+      $(this).toggleClass('open');
+    })
+  }
+  //Hamburger Button
   $('header .btn_hamburger').click(function(){
     if($(this).hasClass('is_open')){
       $(this).removeClass('is_open')
       $(this).addClass('is_closed')
       $('body').removeClass('no_scroll')
-      /* 
-      $('.gnb').removeClass('hidden');
-      $('header').removeClass('mo_sitemap_on'); */
+      $('nav').removeClass('mo_active');
     }else{
       $(this).removeClass('is_closed')
       $(this).addClass('is_open')
       $('body').addClass('no_scroll') 
-     /*  $('.gnb').addClass('hidden'); */
-     /*  $('header').addClass('mo_sitemap_on'); */
+      $('nav').addClass('mo_active');
     }
   })
-}//headerScroll()
+}
 
-//Scroll Section
-function scrollSection(section){
-  let headerH = $('header').outerHeight(true);
-  let goal = parseInt($(section).offset().top) - parseInt($(section).css('margin-top'))  - headerH;
-  if(section == '.sec_slogan'){
-    goal = parseInt($(section).children().eq(0).offset().top) - headerH;
-    let $g1Top = $('.sec_visual .text_area').innerHeight() + 200;
-    goal = goal - $g1Top;
+//Main Header Scroll Interaction
+function mainHdScroll() {
+  if($('.main_type').length > 0){
+    $('header').addClass('bg_transparent');
+    $(window).scroll(function(){
+      let st = $(window).scrollTop();
+      let timer;
+      clearTimeout(timer);
+      timer = setTimeout(function(){
+        if(st > 0){
+          $('header').addClass('scrolled')
+          $('header').removeClass('bg_transparent')
+        }else{
+          $('header').addClass('bg_transparent')
+          $('header').removeClass('scrolled')
+        }
+      }, 100);
+    })
   }
-  $('html, body').animate({
-    scrollTop: goal
-  },1000)
 }
 //Scroll Top
 function scrollTopBtn() {
@@ -448,7 +473,7 @@ function numberCount(el){
     animate();
   });
 }
-//천단위 콤마
+//Number Format 0,000
 function formatNumber(num){
   let number = String(num)
   if (number.length >= 4){
@@ -468,7 +493,7 @@ function formatNumber(num){
     return number;
   }
 }
-
+//MarqueeClone
 function marqueeClone(){
   let el = $('.marquee');
   el.each(function () {
@@ -479,3 +504,83 @@ function marqueeClone(){
     $(this).append(clonedDiv);
   });
 }
+//Main Mo Swiper
+function mainMoSwiper(){
+  let mySwiper1 = undefined;
+  let mySwiper2 = undefined;
+  let mySwiper3 = undefined;
+  function moSwiper(){
+    let ww = $(window).width();
+    if(ww <= 768){
+      if(mySwiper1 == undefined){
+        mySwiper1 = new Swiper('.sec_service .swiper', {
+          slidesPerView:1.15,
+          spaceBetween: 20,
+          centeredSlides: true,
+          pagination: {
+            el: '.sec_service .swiper-pagination',
+          }, 
+        });
+      }
+      if(mySwiper2 == undefined){
+        mySwiper2 = new Swiper('.sec_solution .swiper', {
+          slidesPerView:1.5,
+          spaceBetween: 20,
+          centeredSlides: true,
+          pagination: {
+            el: '.sec_solution .swiper-pagination',
+          }, 
+        });
+      }
+      if(mySwiper3 == undefined){
+        mySwiper3 = new Swiper('.sec_example .swiper', {
+          slidesPerView:1.15,
+          spaceBetween: 20,
+          centeredSlides: true,
+          pagination: {
+            el: '.sec_example .swiper-pagination',
+          }, 
+        });
+      }
+    }else{
+      if(mySwiper1 != undefined){
+        mySwiper1.destroy();
+        mySwiper1 = undefined;
+      }
+      if(mySwiper2 != undefined){
+        mySwiper2.destroy();
+        mySwiper2 = undefined;
+      }
+      if(mySwiper3 != undefined){
+        mySwiper3.destroy();
+        mySwiper3 = undefined;
+      }
+    }
+  }
+  moSwiper();
+  let timer;
+  $(window).on('resize', function(){
+    clearTimeout(timer);
+    timer = setTimeout(moSwiper, 100);
+  })//resize
+}
+//Main Visual Btn Remove
+function removeVisBtn(){
+  if($(window).width()<=768){
+    let timer;
+    clearTimeout(timer);
+    $(window).scroll(function(){
+      let st = $(window).scrollTop();
+      if(st > 0){
+        timer = setTimeout(function(){
+          $('.sec_visual .btn_group').fadeOut()
+        }, 100);
+      }else{
+        timer = setTimeout(function(){
+          $('.sec_visual .btn_group').fadeIn()
+        }, 100);
+      }
+    })
+  }
+}
+

@@ -57,8 +57,8 @@ var include = {
             </li>
           </ul>
           <div class="h_util">
-            <a href="#" class="btn btn_sm"><span>로그인</span></a>
-            <a href="#" class="btn btn_sm btn_secondary ani_hover"><span>무료로 시작하기</span></a>
+            <a href="#" class="btn btn_sm h_util_login"><span>로그인</span></a>
+            <a href="#" class="btn btn_sm btn_primary ani_hover"><span>무료로 시작하기</span></a>
           </div>
         </nav>
         <div class="btn_hamburger">
@@ -117,9 +117,10 @@ var include = {
           </ul>
         </div>
       </div>
-      <div class="btn_srl_top">
-        <a href="#none">TOP</a>
-      </div>
+      <button class="btn btn_srl_top">
+        <i class="ico_scrl_top ico_20"></i>
+        <span>TOP</span>
+      </button>
     </footer>
     `);
   }

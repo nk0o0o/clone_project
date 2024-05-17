@@ -36,20 +36,23 @@ button {
          margin-left: 4px;
       }
    }
-   //Size: 40px/ 48px/ 56px/ 70px/
+   //Size: 40px/ 48px/ 56px/ 70px -56px/
    &_xl {
       min-height: 70px;
       padding: 14px 16px;
       font-size: $fs-md;
       line-height: 1.44;
       letter-spacing: -0.63px;
+      box-shadow:rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
       &.btn_icon {
          width: 70px;
          height: 70px;
          padding: $sp04;
       }
       @media screen and (max-width: $breakpoint-tablet){
-        font-size: $fs-s;
+        min-height: 56px;
+        line-height: 1;
+        font-size: $fs-md;
       }
    }
    &_lg {
@@ -193,11 +196,6 @@ button {
    }
    //Text Button
    &.btn_text{
-    position: relative;
-    padding: 0;
-    min-height: auto;
-    text-transform: uppercase;
-    line-height: 1.2;
     span{
       display: inline-block;
     }
@@ -258,6 +256,7 @@ button {
       top: 0;
       width: 0%;
       height: 100%;
+      border-radius: 8px;
       background-color:darken($color-primary, 10%);
       opacity: 0.5;
       transition: all 0.3s;

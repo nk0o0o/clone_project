@@ -1,3 +1,5 @@
+$header-pc-height:112px;
+$header-mo-height:60px;
 img{
   display: inline-block;
   max-width: 100%;
@@ -24,54 +26,65 @@ img{
     display: block !important;
   }
 }
-body{
-  &::-webkit-scrollbar {
-  }
-  &::-webkit-scrollbar-track {
-  }
-  &::-webkit-scrollbar-thumb {
-  }
-}
-#wrap{
-}
 .sec_inner{
   position: relative;
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
+  padding: 0 20px;
   width: 100%;
-  @media screen and (max-width: $breakpoint-desktop){
-    padding: 0 20px;
+  @media screen and (max-width: $breakpoint-tablet){
+    &.mo_full{
+      max-width: none;
+      padding: 0;
+    }
   }
 }
 .trigger{
   position: fixed;
   top: 0;
 }
-main, #container{}
+main, #container{
+  padding-top: $header-pc-height;
+  @media screen and (max-width: $breakpoint-desktop){
+    padding-top: $header-mo-height;
+  }
+}
 .box_shadow{
   box-shadow: 30px 30px 50px rgba(0, 0, 0, 0.1);
 }
 /* HEADER */
 header{
-  position: relative;
+  z-index: 3;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;  
-  z-index: 3;
-  height: 112px;
+  align-items: center;
+  height: $header-pc-height;
+  background-color: $color-white;
+  transition: background-color 0.3s;
+  border-bottom: 1px solid transparent;
+  &.bg_transparent{
+    background-color: transparent;
+    .h_util{
+      .btn_primary {
+        background-color: $color-secondary;
+        color: $color-primary !important;
+        border-color: transparent;
+      }
+    } 
+  }
   &.scrolled{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 92px;
     background-color: $color-white;
-    border-bottom: 1px solid $color-border;
+    border-bottom-color: $color-border;
   }
   .sec_inner{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
   }
   *, a, span,button {
     font-size: $fs-m;
@@ -81,6 +94,8 @@ header{
     display: none;
   }
   @media screen and (max-width: $breakpoint-desktop){
+    height: $header-mo-height;
+    background-color: $color-white;
     .btn_hamburger{
       display: flex;
     }
@@ -89,7 +104,6 @@ header{
     }
   }
   @media screen and (max-width: $breakpoint-tablet){
-    height: 74px;
     .h_logo{
       height: 100%;
     }
@@ -219,11 +233,13 @@ header{
   .depth_2{
     display: none;
     position: absolute;
+    top: 32px;
     flex-direction: column;
     padding: 16px 0;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.08);
     transition: all 0.2s;
     background-color: $color-white;
+    border-radius: 8px;
     a{
       display: block;
       position: relative;
@@ -251,13 +267,16 @@ header{
 nav{
   @include flexCenter;
   &.mo_active{
+    display: block;
+    position: absolute;
+    top: $header-mo-height;
+    left: 0;
+    width:100%;
+    height: calc(100vh - $header-mo-height);
+    overflow-y: auto;
+    background-color: $color-white;
     @media screen and (max-width: $breakpoint-desktop){
       .gnb{
-        position: fixed;
-        top: 112px;
-        left: 0;
-        width: 100%;
-        height: 100vh;
         flex-direction: column;
         background-color: $color-white;
         .depth_1{
@@ -275,12 +294,28 @@ nav{
           }
         }
         .depth_2{
-          display: block;
+          display: none;
           position: relative;
           min-height: 40px;
           height: auto;
           padding-top: 0;
           box-shadow:none;
+        }
+      }
+      .h_util{
+        display: flex;
+        height: auto;
+        gap: 8px;
+        margin-left: 0;
+        padding: 40px 20px 16px;
+        .btn{
+          flex:1;
+          justify-content: center;
+          height: 56px;
+        }
+        &_login{
+          color:$color-primary;
+          background-color: $color-secondary;
         }
       }
     }
@@ -293,16 +328,18 @@ footer{
   background-color: $gray-600;
   & *{
     color: $gray-30;
+    font-size: $fs-s;
   }
 }
 /* Scroll to Top button */
 .btn_srl_top{
   z-index: 2;
   position: fixed;
-  bottom: 0;
-  right: 0;
+  right: 100px;
+  bottom: 36px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   width: 80px;
   height: 80px;
@@ -311,6 +348,19 @@ footer{
   font-weight: $fw-sb;
   text-align: center;
   border-radius: 100%;
+  background-color: $color-white;
+  span{
+    color: $gray-400;
+  }
+  @media screen and (max-width: $breakpoint-desktop){
+    right: 15px;
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    span{
+      display: none;
+    }
+  }
 }
 
 .f{
@@ -348,9 +398,9 @@ footer{
   &_copy{
     display: flex;
     margin-top: 24px;
-    color: $gray-50;
     p{
       flex: 1;
+      color: $gray-50;
     }
     ul{
       flex: 2;
@@ -361,6 +411,9 @@ footer{
         border-right: 1px solid;
         &:last-child{
           border-right: 0px;
+        }
+        a{
+          color: $gray-50;
         }
       }
     }
@@ -373,8 +426,8 @@ footer{
     gap: 8px;
     a{
       display: block;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
     }
     .blog{
       background:url('../images/icon/ico_blog.png') center/contain no-repeat;
@@ -391,6 +444,35 @@ footer{
     @media screen and (max-width: $breakpoint-tablet){
       margin-left: 0;
       margin-top: 24px;
+    }
+  }
+  @media screen and (max-width: $breakpoint-tablet){
+    &_top{
+      flex-direction: column;
+      gap: 24px;
+    }
+    &_info{
+      li{
+        span{
+          display: block;
+          margin: 0;
+          & +span{
+            margin-top: 12px;
+          }
+        }
+        & + li{
+          margin-top: 12px;
+        }
+      }
+    }
+    &_copy{
+      flex-direction: column;
+      margin-top: 48px;
+      ul{
+        flex-wrap: wrap;
+        row-gap: 8px;
+        margin-top: 8px;
+      }
     }
   }
 }
@@ -455,6 +537,7 @@ $marquee-scroll-end: calc(-100% - $marquee-gap);
   li{
     flex: 1;
     align-self: stretch;
+    height: auto;
     min-width: calc(100%/3 - $gap);
     background-color: $color-box;
     border-radius: 20px;
