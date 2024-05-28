@@ -1,6 +1,6 @@
 $(document).ready(function () { 
   let headerH = $('header').outerHeight(true);
-  if($("[data-numcounter]")){numberCount("[data-numcounter]")};
+  //if($("[data-numcounter]")){numberCount("[data-numcounter]")};
   if ($(".line_tab") || $(".vertical_tab")) { LineTabMenuInit() }
   if ($(".btn_toggle").find("input[disabled='true']")) { toggleBtnDisabled() }
   if($('.file_uploader')){ fileUploader() }
@@ -11,7 +11,15 @@ $(document).ready(function () {
   if ($('footer .btn_srl_top').length > 0) { scrollTopBtn() }
   if( $('.marquee').length > 0){ marqueeClone() }
   if( $('.main_type').length > 0){ mainMoSwiper(); mainHdScroll(); }  
+  if( $('.pricing_list').length > 0){ priceMoSwiper(); }  
   if( $('.sec_visual').length > 0){ removeVisBtn(); }  
+
+  $(".sec_price_comparison .tab_list").click(function(){
+    let index = $(this).data('tab');
+    let scrollEl = $('.sec_price_comparison').find('.table_wrap');
+    let scrollOff = scrollEl.find('.' + index).position().left - $('.mo_focus').outerWidth();
+    scrollEl.scrollLeft(scrollOff)
+  })
 
    /****** Tab Menu ******/
    $('.tab_menu .tab_list').click(function () { tabMenu(this) });
@@ -324,14 +332,43 @@ $(document).ready(function () {
   })//resize
 
   /**** Window Scroll ****/
-  $(window).scroll(function(){    
-    //console.log(scrollTop);
-
+  $("[data-numcounter]").each(function () {
+    let elBtm = $(this).offset().top + $(this).height();
+    if( $(window).height() > elBtm){
+      numberCount(this)
+    }
   })
+  $(window).on('scroll', debounce(scrollAction))
+  
 }) //ready
 
 
 /**** Functions ****/
+function scrollAction(){
+  const viewportBtm = $(window).height() + $(window).scrollTop();
+  //NumberCount scroll Action
+  let numCounter = $("[data-numcounter]");
+  numCounter.each(function () {
+    let elBtm = $(this).offset().top
+    if(viewportBtm - 200 > elBtm){
+      numberCount(this)
+    }
+  });
+
+  //Fade scroll Action
+  const fadeUpEl = $("[class*='fade']");
+  const fadeInEl = $(".fadeIn");
+  fadeUpEl.each(function(){
+    const ElHalfBtm = $(this).offset().top + $(this).height() * 0.25;
+    if (viewportBtm > ElHalfBtm ) {
+      $(this).addClass("active");
+    }
+  });
+
+    var movingScroll = $(window).scrollTop() - $('.sec_solution').offset().top;
+    var movingAmount = -parseInt(movingScroll/5)
+    $('.sec_solution').find('.img_back').css({'transform' : 'translate3d(-50%,'+ movingAmount +'px,0)'})
+}
 function accordionUI(el){
   if($(el).find(".accord_cont").length < 1){
     return false;
@@ -456,11 +493,11 @@ function scrollTopBtn() {
 }
 //Number Counter Animation
 function numberCount(el){
-  const speed = 200;
+  const speed = 500;
   $(el).each(function(){
     const animate = () => {      
       const regex = /[^0-9]/g; //숫자추출 정규식
-      const value = + $(this).data('numcounter').replace(regex, "");
+      const value = + $(this).data('numcounter').toString().replace(regex, "");
       const data = + $(this).text().replace(regex, "");
       const time = value / speed;
       if(data < value) {
@@ -583,4 +620,64 @@ function removeVisBtn(){
     })
   }
 }
-
+//Price Mo Swiper
+function priceMoSwiper(){
+  let priceSwiper1 = undefined;
+  let priceSwiper2 = undefined;
+  function priceMoSw(){
+    let ww = $(window).width();
+    if(ww <= 768){
+      if(priceSwiper1 == undefined){
+        priceSwiper1 = new Swiper('.price_swiper1', {
+          slidesPerView:1.15,
+          spaceBetween: 20,
+          centeredSlides: true,
+          pagination: {
+            el: '.price_swiper1 .swiper-pagination',
+          }, 
+        });
+      }
+      if(priceSwiper2 == undefined){
+        priceSwiper2 = new Swiper('.price_swiper2', {
+          slidesPerView:1.15,
+          spaceBetween: 20,
+          centeredSlides: true,
+          pagination: {
+            el: '.price_swiper2 .swiper-pagination',
+          }, 
+        });
+      }
+    }else{
+      if(priceSwiper1 != undefined){
+        priceSwiper1.destroy();
+        priceSwiper1 = undefined;
+      }
+      if(priceSwiper2 != undefined){
+        priceSwiper2.destroy();
+        priceSwiper2 = undefined;
+      }
+    }
+  }
+  priceMoSw();
+  let timer;
+  $(window).on('resize', function(){
+    clearTimeout(timer);
+    timer = setTimeout(priceMoSw, 100);
+  })//resize
+}
+//Debounce
+function debounce(func, wait = 10, immediate = true) {
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}

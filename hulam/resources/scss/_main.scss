@@ -93,12 +93,21 @@
         content: '';
         z-index: -1;
         position: absolute;
-        width: 100%;
+        width: 0%;
         height: 20px;
         bottom: 6px;
         left: 0;
-        background-color: $color-secondary;
+        background-color: $color-teal;
         border-radius: 999px;
+        animation: underLine 0.5s linear 1s 1 forwards;
+      }
+    }
+    @keyframes underLine {
+      0%{
+        width: 0%;
+      }
+      100%{
+        width: 100%;
       }
     }
   }
@@ -421,6 +430,7 @@
     width: 62%;
     height: 740px;
     margin: 120px auto 0;
+    transition: transform 0.3s linear;
   }
   ul{
     position: relative;
@@ -557,6 +567,9 @@
 }
 //Service Section
 .sec_service{
+  .list_card li:nth-child(n+4).fadeUp{
+    animation-delay: 0.5s;
+  }
   .sec_desc{
     margin-top: 16px;
     font-size: $fs-l;
@@ -629,6 +642,12 @@
       li{
         min-width: calc(100%/2 - $gap/2);
       }
+    }
+    .list_card li:nth-child(n+4).fadeUp{
+      animation-delay: unset;
+    }
+    .list_card li.fadeUp{
+      animation-delay: 0.5s;
     }
   }
   @media screen and (max-width: $breakpoint-tablet){
@@ -880,6 +899,7 @@
     width: 400px;
     justify-content: center;
     margin-top: 60px;
+    box-shadow: none;
   }
   @media screen and (max-width: $breakpoint-tablet){
     .list_card{

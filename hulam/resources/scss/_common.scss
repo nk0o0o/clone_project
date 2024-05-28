@@ -529,12 +529,13 @@ $marquee-scroll-end: calc(-100% - $marquee-gap);
     animation-delay: 0s;
   }
 }
+/* List */
 .list_card{
   $gap: 40px;
   gap: $gap;
   display: flex;
   flex-wrap: wrap;
-  li{
+  & >li{
     flex: 1;
     align-self: stretch;
     height: auto;
@@ -547,29 +548,70 @@ $marquee-scroll-end: calc(-100% - $marquee-gap);
     $gap: 16px;
     gap: $gap;
     flex-direction: column;
-    li{
+    & > li{
       width: 100%;
     }
   }
   &.col_2{
     $gap: 40px;
     gap: $gap;
-    li{
+    & > li{
       min-width: calc(100%/2 - $gap/2);
     }
   }
   &.col_3{
     $gap: 40px;
     gap: $gap;
-    li{
+    & > li{
       min-width: calc(100%/3 - $gap*2/3);
     }
   }
   &.col_4{
     $gap: 16px;
     gap: $gap;
-    li{
+    & > li{
       min-width: calc(100%/4 - $gap*3/4);
+    }
+  }
+  &.col_5{
+    $gap: 16px;
+    gap: $gap;
+    & > li{
+      min-width: calc(100%/5 - $gap*4/5);
+    }
+  }
+}
+.list_disc{
+  &_tit{
+    margin-bottom: 16px;
+    font-size: $fs-m;
+    font-weight: 500;
+    letter-spacing: -0.56px;
+  }
+  .disc{
+    position: relative;
+    padding-left: 12px;
+    font-size: $fs-m;
+    color: $gray-200;
+    letter-spacing: -0.56px;
+    & + .disc{
+      margin-top: 8px;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 0;
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: $gray-200;
+      border-radius: 50%;
+    }
+  }
+  @media screen and (max-width: 1024px){
+    &_tit{
+      font-size: $fs-s;
     }
   }
 }
@@ -581,23 +623,33 @@ $marquee-scroll-end: calc(-100% - $marquee-gap);
 }
 .fadeLeft{
   opacity: 0;
-  animation: fadeLeft 1s ease-in-out forwards;
+  &.active{
+    animation: fadeLeft 1s ease-in-out forwards;
+  }
 }
 .fadeRight{
   opacity: 0;
-  animation: fadeRight 1s ease-in-out forwards;
+  &.active{
+    animation: fadeRight 1s ease-in-out forwards;
+  }
 }
 .fadeIn{
   opacity: 0;
-  animation: fadeIn 0.7s ease-in-out forwards;
+  &.active{
+    animation: fadeIn 0.7s ease-in-out forwards;
+  }
 }
 .fadeUp{
   opacity: 0;
-  animation: fadeUp 0.7s ease-in-out forwards;
+  &.active{
+    animation: fadeUp 0.7s ease-in-out forwards;
+  }
 }
 .fadeDown{
   opacity: 0;
-  animation: fadeDown 0.7s ease-in-out forwards;
+  &.active{
+    animation: fadeDown 0.7s ease-in-out forwards;
+  }
 }
 @keyframes scaleUp {
   0%{

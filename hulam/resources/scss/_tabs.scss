@@ -91,7 +91,19 @@
    &.contain_tab {
       li {
          & > button {
-            border: 1px solid #d6dae1;
+          background-color: $color-white;
+          border: 1px solid #d6dae1;
+          span{
+            color: $gray-50;
+          }
+         }
+         &.current{
+          & > button{
+            background-color: $color-primary;
+            span{
+              color: $color-white;
+            }
+          }
          }
       }
       & + .tab_cont {
