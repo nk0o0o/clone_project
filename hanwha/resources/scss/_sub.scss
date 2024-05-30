@@ -2,8 +2,8 @@
 .sub_exist{
   section{
     h2{
-      font-size: 4.125rem;
       text-align: center;
+      font-family: 'Pretendard', sans-serif;
     }
     .parallax{
       display: flex;
@@ -15,18 +15,61 @@
   .sec_intro{
     .slogan{
       @include flexCenter();
-      height: 80.2vw;
+      height: 80.2vw;      
+      span{
+        display: inline-block;
+      }
+      .fadeUp{
+        &:nth-child(2){
+          animation-delay: 0.5s
+        }
+      }
     }
+  }
+  .txt_slogan{
+    font-size: 2rem;
+    font-weight: $fw-l;
   }
 }
 
 .sub_menu{
-  display: none;
+  //display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
   .inner{
     display: flex;
     justify-content: space-between;
     width: 90%;
     margin: 0 auto;
+  }
+  li{
+    position: relative;
+    color: $color-white;
+    &::after{
+      content: "";
+      position: absolute;
+      bottom: 3px;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: $color-white;
+      transition: width 300ms ease-out;
+      will-change: width;
+    }
+    &.active{
+      &::after{
+        width: 100%;
+      }
+    }
+  }
+  &.type_black{
+    color: $gray-600;
+    &::after{
+      background-color: $gray-600;
+    }
   }
 }
 .article_list{

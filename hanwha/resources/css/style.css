@@ -137,21 +137,21 @@ p {
 @font-face {
   font-family: "HanwhaGothic";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   src: url("../fonts/HanwhaGothic/HanwhaGothicR.woff2") format("woff2");
   unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+AC00-D7A3, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 @font-face {
   font-family: "HanwhaGothic";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   src: url("../fonts/HanwhaGothic/HanwhaGothicL.woff2") format("woff2");
   unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+AC00-D7A3, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 @font-face {
   font-family: "HanwhaGothic";
   font-style: normal;
-  font-weight: 100;
+  font-weight: 300;
   src: url("../fonts/HanwhaGothic/HanwhaGothicEL.woff2") format("woff2");
   unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+AC00-D7A3, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
@@ -199,6 +199,30 @@ p {
   font-style: normal;
   font-weight: 100;
   src: url("../fonts/NotoSansKR/NotoSansKR-Thin.eot"), url("../fonts/NotoSansKR/NotoSansKR-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansKR/NotoSansKR-Thin.woff") format("woff"), url("../fonts/NotoSansKR/NotoSansKR-Thin.woff2") format("woff2"), url("../fonts/NotoSansKR/NotoSansKR-Thin.otf") format("opentype"), url("../fonts/NotoSansKR/NotoSansKR-Thin.svg#NotoSansKR") format("svg");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Pretendard/Pretendard-Regular.subset.woff2"), url("../fonts/Pretendard/Pretendard-Regular.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Pretendard/Pretendard-Medium.subset.woff2"), url("../fonts/Pretendard/Pretendard-Medium.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Pretendard/Pretendard-SemiBold.subset.woff2"), url("../fonts/Pretendard/Pretendard-SemiBold.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Pretendard/Pretendard-Bold.subset.woff2"), url("../fonts/Pretendard/Pretendard-Bold.subset.woff2") format("woff2");
 }
 #movingCursor {
   position: fixed;
@@ -275,8 +299,8 @@ h1 {
 }
 
 h2 {
-  font-size: 3.75rem;
-  font-weight: 300;
+  /* font-size: $fs-xxlg; */
+  font-size: 4.125rem;
   line-height: 1.25;
 }
 @media screen and (max-width: 768px) {
@@ -287,7 +311,6 @@ h2 {
 
 h3 {
   font-size: 4.5rem;
-  font-weight: 300;
   line-height: 1.5;
   letter-spacing: -1.2px;
 }
@@ -6283,6 +6306,71 @@ footer .inner {
   animation-delay: -3s;
 }
 
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 20px));
+  }
+}
+*[class*=fade].mo_action {
+  opacity: 1;
+}
+@media screen and (max-width: 768px) {
+  *[class*=fade].mo_action {
+    opacity: 0;
+  }
+}
+
+.fadeUp {
+  opacity: 0;
+}
+.fadeUp.active {
+  animation: fadeUp 0.7s ease-in-out forwards;
+}
+
+.fadeDown {
+  opacity: 0;
+}
+.fadeDown.active {
+  animation: fadeDown 0.7s ease-in-out forwards;
+}
+
+.fadeRight {
+  opacity: 0;
+}
+.fadeRight.active {
+  animation: fadeRight 1s ease-in-out forwards;
+}
+
+@keyframes fadeDown {
+  0% {
+    transform: translateY(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeUp {
+  0% {
+    transform: translateY(30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeRight {
+  0% {
+    transform: translateX(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .sec_visual {
   position: relative;
   height: 100vh;
@@ -6451,6 +6539,7 @@ footer .inner {
   justify-content: end;
   position: absolute;
   right: 5%;
+  height: 42px;
   top: 0;
   z-index: 2;
   gap: 16px;
@@ -6467,7 +6556,7 @@ footer .inner {
   line-height: 1;
 }
 .sec_product .btn_area .btn_border.swiper-pagination-bullet-active {
-  padding: 8px;
+  padding: 12px;
 }
 @media screen and (max-width: 768px) {
   .sec_product .btn_area {
@@ -6717,14 +6806,6 @@ footer .inner {
   }
 }
 
-@keyframes scroll-x {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-100% - 20px));
-  }
-}
 @media (hover: hover) {
   .sec_news .news_list li:hover .title::after {
     position: absolute;
@@ -6741,8 +6822,8 @@ footer .inner {
   }
 }
 .sub_exist section h2 {
-  font-size: 4.125rem;
   text-align: center;
+  font-family: "Pretendard", sans-serif;
 }
 .sub_exist section .parallax {
   display: flex;
@@ -6759,15 +6840,53 @@ footer .inner {
   align-items: center;
   height: 80.2vw;
 }
+.sub_exist .sec_intro .slogan span {
+  display: inline-block;
+}
+.sub_exist .sec_intro .slogan .fadeUp:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.sub_exist .txt_slogan {
+  font-size: 2rem;
+  font-weight: 300;
+}
 
 .sub_menu {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
 }
 .sub_menu .inner {
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: 0 auto;
+}
+.sub_menu li {
+  position: relative;
+  color: #fff;
+}
+.sub_menu li::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  transition: width 300ms ease-out;
+  will-change: width;
+}
+.sub_menu li.active::after {
+  width: 100%;
+}
+.sub_menu.type_black {
+  color: #000000;
+}
+.sub_menu.type_black::after {
+  background-color: #000000;
 }
 
 .article_list {

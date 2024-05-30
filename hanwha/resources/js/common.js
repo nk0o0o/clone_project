@@ -7,7 +7,8 @@ $(document).ready(function () {
   if($('.input_writing_group textarea')){ initCountString() }
   if ($('.progress_bar')) { progressBarUI() }
   if ($('.pagination').length > 0) { paginationUI() }
-  if($('header').length >= 1){headerScroll(); gnbEvent();choiceLang();existSubmenu(headerH);}
+  if( $('.marquee').length > 0){ marqueeClone() }
+  if($('header').length >= 1){headerScroll(); gnbEvent();choiceLang();}
   if ($('footer').length > 0) { 
     let g_footer = undefined;
     let ftH = $('.f_top').innerHeight() + $('.f_btm').innerHeight();
@@ -67,7 +68,6 @@ $(document).ready(function () {
          });
       }
       lineTab.each(function () {
-         console.log($(this))
          $(this).find('.tab_bar').css({
             "width": $(this).find(".current").outerWidth(),
             "left": $(this).find(".current").position().left + parseInt($(this).find(".current").css("margin-left"))
@@ -372,11 +372,47 @@ $(document).ready(function () {
     timer = setTimeout(function(){footerGsap(ftH, ftPt);}, 200);
 
   })//resize
+  
+ /**** Window Scroll  ****/ 
+  $(window).on('scroll', debounce(scrollAction));
 
 }) //ready
 
 
 /**** Functions ****/
+function scrollAction(){
+  let viewportBtm = $(window).height() + $(window).scrollTop();
+  //Fade scroll Action
+  const fadeUpEl = $("[class*='fade']");
+  fadeUpEl.each(function(){
+    if($(this).parents('.sec_closing')){
+      viewportBtm = viewportBtm - 1000;
+    }
+    if($(this).hasClass('mo_action') && $(window).width() > 768){
+        return false;
+    }else{
+      const ElHalfBtm = $(this).offset().top ///+ $(this).height() * 0.25;
+      if (viewportBtm > ElHalfBtm ) {
+        $(this).addClass("active");
+      }
+     
+    } 
+  });
+  /*   var movingScroll = $(window).scrollTop() - $('.sec_solution').offset().top;
+    var movingAmount = -parseInt(movingScroll/5) */
+
+  //exist subpage Scroll menu
+/*   function existSubmenu(hdH){
+    $('.sub_exist .sub_menu').stop().slideDown(300);
+      let wSt = $(window).scrollTop();
+      if(wSt > hdH){}
+   } */
+    /* $('.sub_menu').slideDown()
+    $('.sub_menu').slideUp()
+    $('.sub_menu li').each(function(){
+      $(this).addClass('active');
+    }) */
+}
 function accordionUI(el){
   if($(el).find(".accord_cont").length < 1){
     return false;
@@ -547,17 +583,36 @@ function footerGsap(fH, fPt) {
       trigger: '#container',
       start:()=>`bottom+=${fPt} bottom`,
       end:()=>`bottom+=${fPt} bottom-=${fH}`,
-      markers: true,
+      //markers: true,
       scrub: 1,
     },
     y: -fH,
   })
 }
-//exist subpage Scroll menu
-function existSubmenu(hdH){
-  $('.sub_exist .sub_menu').stop().slideDown(300);
-  $(window).scroll(function () { 
-    let wSt = $(window).scrollTop();
-    if(wSt > hdH){}
+//Debounce
+function debounce(func, wait = 10, immediate = true) {
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+//MarqueeClone
+function marqueeClone(){
+  let el = $('.marquee');
+  el.each(function () {
+    let elChild = $(this).find('.marquee_group').html();
+    let cloneGroup = $(elChild).clone();
+    let clonedDiv =  $('<div aria-hidden="true" class="marquee_group"></div>');
+    clonedDiv.append(cloneGroup)
+    $(this).append(clonedDiv);
   });
 }

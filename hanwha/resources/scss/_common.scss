@@ -821,7 +821,7 @@ $marquee-scroll-end: calc(-100% - $marquee-gap);
   &_reverse .marquee_group {
     animation-direction: reverse;
     animation-delay: -3s;
-  }
+  } 
 }
 @keyframes scroll-x {
   from {
@@ -830,4 +830,55 @@ $marquee-scroll-end: calc(-100% - $marquee-gap);
   to {
     transform: translateX(calc(-100% - calc($marquee-size / 14)));
   }
+}
+*[class*='fade'].mo_action{
+  opacity: 1;
+  @media screen and (max-width: $breakpoint-tablet){
+    opacity: 0;
+  }
+}
+.fadeUp{
+  opacity: 0;
+  &.active{
+    animation: fadeUp 0.7s ease-in-out forwards;
+  }
+}
+.fadeDown{
+  opacity: 0;
+  &.active{
+    animation: fadeDown 0.7s ease-in-out forwards;
+  }
+}
+.fadeRight{
+  opacity: 0;
+  &.active{
+    animation: fadeRight 1s ease-in-out forwards;
+  }
+}
+@keyframes fadeDown {
+  0%{
+    transform: translateY(-30%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }  
+}
+@keyframes fadeUp {
+  0%{
+    transform: translateY(30%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }  
+}
+@keyframes fadeRight{
+  0%{
+    transform: translateX(20%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }  
 }
