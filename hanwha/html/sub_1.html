@@ -22,11 +22,11 @@
     <!--// header -->
     
     <!-- sub_menu -->
-    <div class="sub_menu">
+    <div class="sub_menu type_white">
       <ul class="inner">
-        <li class="active"><a href="#">01.DEVOTION FOR THE NATION</a></li>
-        <li><a href="#">02.INVALUABLE PATH FOR BETTER WORLD</a></li>
-        <li><a href="#">03.OUR PROMISE FOR BRIGHTER TOMORROW</a></li>
+        <li data-anchor="secDevotion">01.DEVOTION FOR THE NATION</li>
+        <li data-anchor="secWorld">02.INVALUABLE PATH FOR BETTER WORLD</li>
+        <li data-anchor="secTomorrow">03.OUR PROMISE FOR BRIGHTER TOMORROW</li>
       </ul>
     </div>
     <!-- //sub_menu -->
@@ -52,7 +52,7 @@
       </section>
       <!-- // section -->
       <!-- section -->
-      <section class="sec_devotion">
+      <section id="secDevotion" class="sec_devotion">
         <div class="parallax">
           <h2>Devotion for the nation</h2><!-- 66px -->
         </div>
@@ -74,7 +74,7 @@
       </section>
       <!-- // section -->      
       <!-- section -->
-      <section class="sec_world">
+      <section id="secWorld" class="sec_world">
         <div class="parallax">
           <h2>Invaluable path for better world</h2><!-- 66px -->
         </div>
@@ -96,7 +96,7 @@
       </section>
       <!-- // section -->      
       <!-- section -->
-      <section class="sec_tomorrow">
+      <section id="secTomorrow" class="sec_tomorrow">
         <div class="parallax">
           <h2>Our promise for brighter tomorrow</h2><!-- 66px -->
         </div>
@@ -167,7 +167,7 @@
       clearTimeout(timer);
       timer = setTimeout(function(){
         footerGsap()
-        console.log('timer'+ ftH);
+        //console.log('timer'+ ftH);
       }, 200);
     });  
     footerGsap();
@@ -183,7 +183,7 @@
         y: - ftH,
       })
       ftH = $('footer').innerHeight();
-      console.log(g_footer.scrollTrigger);
+      //console.log(g_footer.scrollTrigger);
       g_footer.scrollTrigger.update()
     }
   });

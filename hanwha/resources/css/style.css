@@ -6849,6 +6849,8 @@ footer .inner {
 .sub_exist .txt_slogan {
   font-size: 2rem;
   font-weight: 300;
+  text-align: center;
+  letter-spacing: -1.16px;
 }
 
 .sub_menu {
@@ -6857,36 +6859,56 @@ footer .inner {
   left: 0;
   width: 100%;
   z-index: 3;
+  padding: 0 0;
+  visibility: hidden;
+  transition: padding 0.5s ease-in, visibility 0.2s 0.3s;
+  will-change: padding, visibility;
 }
 .sub_menu .inner {
   display: flex;
   justify-content: space-between;
+  gap: 8%;
   width: 90%;
   margin: 0 auto;
 }
 .sub_menu li {
+  flex: 1;
   position: relative;
-  color: #fff;
+  color: #000000;
+  font-size: 0.875rem;
+  transition: color 0.3s;
+  will-change: color;
+  text-align: center;
+  cursor: pointer;
 }
 .sub_menu li::after {
   content: "";
   position: absolute;
-  bottom: 3px;
+  bottom: -3px;
   left: 0;
   width: 0%;
   height: 1px;
-  background-color: #fff;
-  transition: width 300ms ease-out;
-  will-change: width;
+  background-color: #000000;
+  transition: width 300ms ease-out, background-color 0.3s;
+  will-change: width, background-color;
 }
 .sub_menu li.active::after {
   width: 100%;
 }
-.sub_menu.type_black {
-  color: #000000;
+.sub_menu.fixed {
+  top: 0;
+  padding: 32px 0;
+  visibility: visible;
 }
-.sub_menu.type_black::after {
-  background-color: #000000;
+.sub_menu.type_white li {
+  color: #fff;
+  transition: color 0.3s;
+  will-change: color;
+}
+.sub_menu.type_white li::after {
+  background-color: #fff;
+  transition: width 300ms ease-out, background-color 0.3s;
+  will-change: width, background-color;
 }
 
 .article_list {
