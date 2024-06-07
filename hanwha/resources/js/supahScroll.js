@@ -71,9 +71,7 @@ class SupahScroll {
 /*------------------------------
 Initialize
 ------------------------------*/
-/* $(document).ready(function () {
-  const supahscroll = new SupahScroll({
-    el: "main",
-    speed: 0.1
-  });
-}); */
+const supahscroll = new SupahScroll({
+  el: "main",
+  speed: 0.1
+});

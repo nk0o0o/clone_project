@@ -1,5 +1,8 @@
 // SUB : Why We Exist
 .sub_exist{
+  &#container{
+    background-color: #fafafa;
+  }
   section{
     h2{
       text-align: center;
@@ -10,18 +13,74 @@
       justify-content: center;
       align-items: center;
       color: $color-white;
+      z-index: 1;
+      background-image:none;
+      position: relative;
+      overflow: hidden;
+      &_img{
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-attachment: fixed;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+    .inner{
+      z-index: 1;
+      position: relative;
     }
   }
   .sec_intro{
+    position: relative;
+    .scroll_bg{
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: $gray-600;  
+      opacity: 0;
+    }
+    .parallax{
+      width: 85%;
+      margin: 0 auto;
+      &_img{
+        background-image: url("../images/exsist/kv1.jpg");
+        animation: changeBgImg 10s infinite;
+        @keyframes changeBgImg {
+          25%{
+            background-image: url("../images/exsist/kv1.jpg");
+          }
+          50%{
+            background-image:url("../images/exsist/kv2.jpg");
+          }
+          75%{
+            background-image:url("../images/exsist/kv3.jpg");
+          }
+          100%{
+            background-image: url("../images/exsist/kv1.jpg");
+          }
+        }
+      }
+      &.fadeUp{
+        animation-delay: 0.5s
+      }
+    }
     .slogan{
       @include flexCenter();
-      height: 80.2vw;      
+      height: 96vh;
       span{
         display: inline-block;
       }
       .fadeUp{
         &:nth-child(2){
-          animation-delay: 0.5s
+          animation-delay: 0.25s
         }
       }
     }
@@ -107,62 +166,64 @@
       margin-top: 40px;
       line-height: 1.6;
     }
-    &:nth-child(1){
-      margin-top: -250px;
+    &:nth-child(2n){
+      margin-top: 500px;
     }
-    &:nth-child(2){
-      margin-bottom: -250px;
+    &:nth-child(2n+1){
+      margin-top: -500px;
+    }
+    &:nth-child(1){
+      margin-top: 0;
     }
   }
   &.reverse{
     li{
-      &:nth-child(1){
-        margin-top: auto;
-        margin-bottom: -250px;
+      &:nth-child(2n+1){
+        margin-top: 500px;
       }
-      &:nth-child(2){
-        margin-bottom: auto;
-        margin-top: -250px;
+      &:nth-child(2n){
+        margin-top: 0;
       }
-      &:nth-child(3){
+      &:nth-child(3n){
+        margin-top: -500px;
         grid-column: 2 / 3;
       }
     }
   }
 }
 .sec_purpose{
-  .parallax{
+  .parallax_img{
     background: url('../images/exsist/kv2.jpg') center/cover no-repeat;
   }
 }
 .sec_devotion{
-  .parallax{
-    background: url('../images/exsist/kv2.jpg') center/cover no-repeat;
+  .parallax_img{
+    background: url('../images/exsist/nation-kv.jpg') center/cover no-repeat;
   }
-  .inner{
-    padding: 250px 0;
+}
+.sec_world{
+  .parallax_img{
+    background: url('../images/exsist/world-kv.jpg') center/cover no-repeat;
   }
 }
 .sec_inval{
-  .parallax{
+  .parallax_img{
     background: url('../images/exsist/world-kv.jpg') center/cover no-repeat;
   }
 }
 .sec_tomorrow{
-  .parallax{
+  .parallax_img{
     background: url('../images/exsist/tomorrow-kv.jpg') center/cover no-repeat;
   }
 }
 .sec_closing{
-  /*  .inner{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  } */
+   .inner{
+    bottom: -15%;
+  }
+  border: 1px solid;
+  background-color: $color-white;
   .parallax{
     height: 600px;
-    background-image: none;
     .inner{
       color: $gray-600;
     }

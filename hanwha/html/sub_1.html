@@ -6,14 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why We Exist</title>
   <script src="../inc/pub_include.js"></script>
-  <script src="../resources/js/jquery-3.6.0.min.js"></script>
-  <script src="../resources/js/gsap.min.js"></script>
-  <script src="../resources/js/ScrollTrigger.min.js"></script>
-  <!-- <script src="../resources/js/smoothScroll.js"></script> -->
-  <script src="../resources/js/swiper.min.js"></script>
-  <script src="../resources/js/common.js"></script>
-  <link rel="stylesheet" href="../resources/css/swiper.min.css">
-  <link rel="stylesheet" href="../resources/css/style.css">
+  <script>include.scripts();</script>
+  <script>include.style();</script>  
 </head>
 <body>
   <div id="wrap">
@@ -34,13 +28,15 @@
     <main id="container" class="sub_exist">      
       <!-- section -->
       <section class="sec_intro">
+        <div class="scroll_bg"></div>
         <div class="slogan">
           <h2 class="inner">
-            <span class="fadeUp active">Sustainable technologies</span>
+            <span class="fadeUp active">Sustainable technologies</span><br>
             <span class="fadeUp active">for our future generations</span>
           </h2>
         </div>
-        <div class="parallax">
+        <div class="parallax fadeUp active">
+          <div class="parallax_img"></div>
           <p class="txt_slogan">
             한화에어로스페이스의 존재 목적은<br>
             사람, 지구 그리고 미래에 있습니다.<br><br>
@@ -54,6 +50,7 @@
       <!-- section -->
       <section id="secDevotion" class="sec_devotion">
         <div class="parallax">
+          <div class="parallax_img"></div>
           <h2>Devotion for the nation</h2><!-- 66px -->
         </div>
         <div class="inner">
@@ -76,6 +73,7 @@
       <!-- section -->
       <section id="secWorld" class="sec_world">
         <div class="parallax">
+          <div class="parallax_img"></div>
           <h2>Invaluable path for better world</h2><!-- 66px -->
         </div>
         <div class="inner">
@@ -98,6 +96,7 @@
       <!-- section -->
       <section id="secTomorrow" class="sec_tomorrow">
         <div class="parallax">
+          <div class="parallax_img"></div>
           <h2>Our promise for brighter tomorrow</h2><!-- 66px -->
         </div>
         <div class="inner">
@@ -187,6 +186,92 @@
       g_footer.scrollTrigger.update()
     }
   });
+  </script>
+  <script>
+     gsap.registerPlugin(ScrollTrigger);
+    //예)) start: "20px 80%" 트리거는 (트리거의 머리로부터 20px 밑에/ 최상단으로부터 80%(밑에서부터 20%))
+    //예)) end: "bottom 100px" 트리거는 (트리거의 바닥/최상단으로부터 100px 밑)
+    //예)) end: "+=300" ( 바닥으로부터 300px 밑 /start의 뷰포트위치와 합쳐짐)
+
+    const g1 = gsap.to(".sec_intro .parallax", {
+      width:'100%',
+      scrollTrigger: {
+        trigger: ".sec_intro .parallax",
+        start: "top bottom",
+        end:"top top",
+        scrub: true,
+      },
+    });
+    const g2 = gsap.to(".sec_intro .slogan", {
+      yPercent: 100,
+      ease: "none",
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".sec_intro .parallax",
+        start: "top bottom", 
+        scrub: true,
+      },  
+    });
+    const g3 = gsap.to(".sec_intro .scroll_bg", {
+      opacity:0.4,
+      scrollTrigger: {
+        trigger: ".sec_intro",
+        start: "top top",
+        end:"bottom bottom",
+        scrub: true,
+      },
+    });
+    const g4 = gsap.utils.toArray('.parallax_img');
+    g4.forEach((item, i) => {
+      gsap.to(item, {
+        scrollTrigger: {
+        trigger: item,
+        start: "top top",
+        scrub: true,
+      },
+      yPercent: 50,
+      ease: "none",
+      })
+    });
+    const g5 = gsap.utils.toArray('.article_list li');
+    g5.forEach((item, i) => {
+      gsap.to(item, {
+        scrollTrigger: {
+        trigger: item,
+        start: "top bottom",
+        scrub: true,
+      },
+      yPercent: -50,
+      ease: "none",
+      })
+    });
+    const g6 = $(".sec_closing .fadeRight");
+    gsap.to(g6, {
+      scrollTrigger: {
+        trigger: ".sec_closing",
+        start: "top center",
+        end: "top center",
+        onEnter:function(){
+          g6.addClass('active');
+        }, 
+      },
+    });
+    const g7 = gsap.to(".sec_closing .parallax .inner", {
+      yPercent:-80,
+      scrollTrigger: {
+        trigger: ".sec_tomorrow",
+        start: "bottom center",
+        end:"bottom top",
+        scrub: true,      
+        markers: {
+          startColor: 'blue',
+            endColor: 'black',
+            fontSize: '1rem',
+            indent: 200
+        }
+      },
+    });
+
   </script>
 </body>
 </html>

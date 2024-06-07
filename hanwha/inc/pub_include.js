@@ -7,10 +7,18 @@ var include = {
     );
   },
   scripts: function () {
-    document.write('<script src="/resources/js/jquery-3.6.0.min.js"></script>');
+    document.write(`<script src="../resources/js/jquery-3.6.0.min.js"></script>`)
+    //document.write(`<script src="../resources/js/supahScroll.js"></script>`)
+    document.write(`<script src="../resources/js/gsap.min.js"></script>`)
+    document.write(`<script src="../resources/js/ScrollTrigger.min.js"></script>`)    
+    document.write(`<script src="../resources/js/smooth.js"></script>`)
+    //document.write(`<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>`)
+    document.write(`<script src="../resources/js/swiper.min.js"></script>`)
+    document.write(`<script src="../resources/js/common.js"></script>`)
   },
   style: function () {
-    document.write('<script src="/resources/js/jquery-3.6.0.min.js"></script>');
+    document.write(`<link rel="stylesheet" href="../resources/css/swiper.min.css">`)
+    document.write(`<link rel="stylesheet" href="../resources/css/style.css">`)
   },
   header: function () {
     document.write(

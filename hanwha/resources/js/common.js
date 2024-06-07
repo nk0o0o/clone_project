@@ -1,4 +1,5 @@
-$(document).ready(function () {  
+$(document).ready(function () { 
+  smoothScroll(); 
   if ($(".line_tab") || $(".vertical_tab")) { LineTabMenuInit() }
   if ($(".btn_toggle").find("input[disabled='true']")) { toggleBtnDisabled() }
   if($('.file_uploader')){ fileUploader() }
@@ -18,7 +19,6 @@ $(document).ready(function () {
   };
   if ($('footer .btn_srl_top').length > 0) { scrollTopBtn() }
   if($('[data-anchor]').length> 0) movingAnchor();
- 
    /****** Tab Menu ******/
    $('.tab_menu .tab_list').click(function () { tabMenu(this) });
 
@@ -386,7 +386,7 @@ function scrollAction(){
   const fadeUpEl = $("[class*='fade']");
   fadeUpEl.each(function(){
     if($(this).parents('.sec_closing')){
-      viewportBtm = viewportBtm - 1000;
+      return false
     }
     if($(this).hasClass('mo_action') && $(window).width() > 768){
         return false;
@@ -406,7 +406,7 @@ function scrollAction(){
   function existSubmenu(){
     let fixedST = $('.sec_devotion').offset().top;
     let fixedET = $('.sec_closing').offset().top;
-    let $Li = $('.sub_menu li');
+
     if($(window).scrollTop() >= fixedST){
       $('.sub_menu').addClass('fixed');
       $('.parallax').each(function(){
@@ -415,9 +415,21 @@ function scrollAction(){
         if( start ) $('.sub_menu').addClass('type_white');
         if(end) $('.sub_menu').removeClass('type_white');
       })
-    }else if($(window).scrollTop() >= fixedET && $(window).scrollTop() < fixedST){
+    }else if($(window).scrollTop() >= fixedET){
       $('.sub_menu').removeClass('fixed')
-    }
+    }else{
+      $('.sub_menu').removeClass('fixed');
+    };
+
+    $('.sub_menu li').each(function(){
+      let anchor = $(this).attr('data-anchor')
+      let targetT = $("#" + anchor).offset().top;
+      if($(window).scrollTop() >= targetT){
+        $('.sub_menu li').removeClass('active');
+        $(this).addClass('active')
+      }
+    });
+    
   } 
 }
 
@@ -425,7 +437,7 @@ function movingAnchor(){
   $('[data-anchor]').on('click',function(){
     $(this).siblings().removeClass('active')
     var anchorId = $(this).attr('data-anchor');
-    $(this).addClass('active')
+    //$(this).addClass('active')
     scrollToAnchorTab(anchorId);
   });
 }
@@ -643,3 +655,17 @@ function marqueeClone(){
     $(this).append(clonedDiv);
   });
 }
+function smoothScroll(){
+  const lenis = new Lenis()
+  function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+  requestAnimationFrame(raf)
+  lenis.on('scroll', ScrollTrigger.update)
+  gsap.ticker.add((time)=>{
+    lenis.raf(time * 1000)
+  })
+  gsap.ticker.lagSmoothing(0)
+}
+
