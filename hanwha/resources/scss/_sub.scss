@@ -37,6 +37,17 @@
   }
   .sec_intro{
     position: relative;
+    h2{
+      text-align: center;
+      font-size: 5.525rem;
+      font-weight: $fw-l;
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.15;
+      letter-spacing: -5.6px;
+      @media screen and (max-width: $breakpoint-tablet){
+        font-size: 3.9rem;
+      }
+    }
     .scroll_bg{
       position: absolute;
       z-index: -1;
@@ -238,19 +249,32 @@
       justify-content: center;
       height: 66vh;
       color: $color-white;
+      background-image: url("../images/sustain/img_sustain_kv.png");
+      h2{
+        text-align: center;
+        font-size: 5.525rem;
+        font-weight: $fw-l;
+        font-family: 'Noto Sans KR', sans-serif;
+        line-height: 1.15;
+        letter-spacing: -5.6px;
+      }
     }
     @media screen and (max-width: $breakpoint-tablet){
       .parallax{
         height: 60vh;
-      }
-      h2{
-        padding: 0 24px;
-        text-align: center;
+        h2{
+          font-size: 3.9rem;
+          padding: 0 24px;
+          text-align: center;
+        }
       }
     }
   }
   h4{
-    font-size: 4.25rem;
+    font-weight: $fw-l;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -3px;
+    font-size: 3.95rem;
     line-height: 1;
     @media screen and (max-width: $breakpoint-tablet){
       font-size: 2.25rem;
@@ -305,6 +329,7 @@
     padding: 230px 8% 0;
   }
   li{
+    margin-bottom: 152px;
     h4{
       margin-top: 52px;
       & +.tit{
@@ -320,9 +345,6 @@
       margin-top: 18px;
       line-height: 1.4;
       color: $gray-500;
-    }
-    & + li{
-      margin-top: 152px;
     }
     img{
       display: block;
@@ -354,7 +376,8 @@
       padding:60px 0 72px 14%;
       max-width: none;
     }
-    li{
+    li{ 
+      margin-bottom: 48px;
       h4{
         margin-top: 32px;
         &+ .tit{
@@ -368,9 +391,6 @@
       .desc{
         margin-top: 12px;
         font-size: $fs-s;
-      } 
-      & + li{
-        margin-top: 48px;
       }
     }
     &:nth-last-of-type(1){

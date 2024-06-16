@@ -2,6 +2,39 @@ body{
   -ms-scroll-chaining: none;
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
+  &.no_white_header{
+    header.t_white{
+      background-color: rgba($color: $color-white, $alpha: 0.9);
+      border-bottom: 1px solid $color-border;
+      .lang{
+        background-color: transparent;
+        border-color: $color-border;
+      }
+      .h_logo{
+        a{
+          background: url('../images/logo_b.svg') left center/contain no-repeat;
+        }
+      }
+      .ico_global{
+        &::before{
+          background-color: $gray-600;
+        }
+      }
+      .h_link{
+        color: $gray-600;
+      }
+      .gnb{
+        &, a, span{
+          color: $gray-600;
+        }
+      }
+      .btn_hamburger{
+        span{
+          background-color: $gray-600;
+        }
+      }
+    }
+  }
 }
 .supah-scroll {
   position: fixed;
@@ -384,6 +417,7 @@ header{
     a{
       font-size: $fs-md;
       position: relative;
+      color: $color-white !important;
       &::after{
         content: '';
         position: absolute;
@@ -407,7 +441,7 @@ header{
 /* SITE MAP */
 .site_map{
   display: none;
-  z-index: 2;
+  z-index: 10010;
   position: fixed;
   top: 0;
   left: 0;

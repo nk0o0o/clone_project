@@ -99,7 +99,7 @@ header{
     .btn_hamburger{
       display: flex;
     }
-    .h_util, nav{
+    .h_util{
       display: none
     }
   }
@@ -266,15 +266,20 @@ header{
 /* NAVIGATION */
 nav{
   @include flexCenter;
+  position: absolute;
+  display: block;
+  top: $header-mo-height;
+  width:100%;
+  visibility: hidden;
+  right: -100%;
+  transition: all 0.3s;
+  height: calc(100vh - $header-mo-height);
   &.mo_active{
-    display: block;
-    position: absolute;
-    top: $header-mo-height;
-    left: 0;
-    width:100%;
-    height: calc(100vh - $header-mo-height);
+    visibility: visible;
+    right: 0%;
     overflow-y: auto;
     background-color: $color-white;
+    transition: all 0.3s;
     @media screen and (max-width: $breakpoint-desktop){
       .gnb{
         flex-direction: column;

@@ -43,7 +43,7 @@
     }
     .sec{
       &_state{
-        padding: 60px 0;
+        padding: 120px 0;
       }
       &_visual{
         padding: 0;
@@ -172,6 +172,9 @@
       padding: 20px;
       width: 100vw;
       flex-direction: row;
+      &.fadeOut{
+        visibility: hidden;
+      }
       .btn{
         & + .btn{
           margin-top: 0;
@@ -349,7 +352,7 @@
     padding-bottom: 200px;
   }
   .marquee_group{
-    animation-duration: 45s;
+    animation-duration: 15s;
     img{
       max-height: 120px;
     }
@@ -509,6 +512,9 @@
         position: static;
         width: 280px;
         height: 243px;
+        img{
+          border-radius: 12px;
+        }
         &.fadeIn{
           animation: none;
           opacity: 1;

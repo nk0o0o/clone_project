@@ -561,7 +561,7 @@ function mainMoSwiper(){
       }
       if(mySwiper2 == undefined){
         mySwiper2 = new Swiper('.sec_solution .swiper', {
-          slidesPerView:1.5,
+          slidesPerView:1.25,
           spaceBetween: 20,
           centeredSlides: true,
           pagination: {
@@ -610,11 +610,13 @@ function removeVisBtn(){
       let st = $(window).scrollTop();
       if(st > 0){
         timer = setTimeout(function(){
-          $('.sec_visual .btn_group').fadeOut()
+          $('.sec_visual .btn_group').addClass('fadeOut');
+          $('.sec_visual .btn_group').removeClass('fadeUp');
         }, 100);
       }else{
         timer = setTimeout(function(){
-          $('.sec_visual .btn_group').fadeIn()
+          $('.sec_visual .btn_group').addClass('fadeUp');
+          $('.sec_visual .btn_group').removeClass('fadeOut');
         }, 100);
       }
     })

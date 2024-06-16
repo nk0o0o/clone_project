@@ -5614,7 +5614,7 @@ header .btn_hamburger {
   header .btn_hamburger {
     display: flex;
   }
-  header .h_util, header nav {
+  header .h_util {
     display: none;
   }
 }
@@ -5781,16 +5781,21 @@ nav {
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
+  position: absolute;
+  display: block;
+  top: 60px;
+  width: 100%;
+  visibility: hidden;
+  right: -100%;
+  transition: all 0.3s;
+  height: calc(100vh - 60px);
 }
 nav.mo_active {
-  display: block;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 60px);
+  visibility: visible;
+  right: 0%;
   overflow-y: auto;
   background-color: #fff;
+  transition: all 0.3s;
 }
 @media screen and (max-width: 1280px) {
   nav.mo_active .gnb {
@@ -6264,7 +6269,7 @@ footer * {
     padding-bottom: 24px;
   }
   .main_type .sec_state {
-    padding: 60px 0;
+    padding: 120px 0;
   }
   .main_type .sec_visual {
     padding: 0;
@@ -6392,6 +6397,9 @@ footer * {
     padding: 20px;
     width: 100vw;
     flex-direction: row;
+  }
+  .sec_visual .btn_group.fadeOut {
+    visibility: hidden;
   }
   .sec_visual .btn_group .btn {
     flex: 1;
@@ -6570,7 +6578,7 @@ footer * {
   padding-bottom: 200px;
 }
 .sec_state .marquee_group {
-  animation-duration: 45s;
+  animation-duration: 15s;
 }
 .sec_state .marquee_group img {
   max-height: 120px;
@@ -6722,6 +6730,9 @@ footer * {
     position: static;
     width: 280px;
     height: 243px;
+  }
+  .sec_solution .swiper li img {
+    border-radius: 12px;
   }
   .sec_solution .swiper li.fadeIn {
     animation: none;
